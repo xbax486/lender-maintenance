@@ -9,11 +9,13 @@ import { Lender } from './../../models/lender';
 })
 export class LenderMaintenanceComponent {
   lenders: Lender[] = [];
+  lenderLoaded: boolean = false;
 
   constructor(private lenderService: LenderService) {
     this.lenderService.getLenders().subscribe(lendersResult => {
       if(lendersResult && lendersResult.data) {
         this.lenders = lendersResult.data;
+        this.lenderLoaded = true;
       }
     });
   }
