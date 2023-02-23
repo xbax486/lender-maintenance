@@ -1,0 +1,63 @@
+.app-lender-maintenance {
+    background: #e6ebf1;
+}
+
+.app-lender-maintenance .panel {
+    background: #ffffff;
+    margin: 15px;
+    border-radius: 8px;
+    padding: 15px 0;
+}
+
+.panel-header {
+    margin: 15px 40px;
+}
+
+.panel-body {
+    margin: 30px 40px;
+}
+
+.divider {
+    border-bottom: 1px solid #efefef;
+}
+
+.panel-header h2 {
+    color: #1fb394;
+}
+
+.text-bold {
+    color: #656565;
+    font-weight: bold;
+}
+
+.table-lenders-body {
+    padding: 15px 0;
+    overflow: auto;
+    max-height: 1000px;
+}
+
+.table-lenders-body:nth-of-type(odd)  {
+    background-color: rgba(0,0,0,.05);
+    border-top: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+}
+
+@media (max-width: 1200px) {
+    .panel-body-desktop {
+        display: none;
+    }
+
+    .panel-body-mobile {
+        display: flex;
+    }
+}
+
+@media (min-width: 1201px) {
+    .panel-body-desktop {
+        display: flex;
+    }
+
+    .panel-body-mobile {
+        display: none;
+    }
+}
