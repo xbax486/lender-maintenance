@@ -3,465 +3,647 @@
     <div class="col col-12">
       <div class="panel">
         <div class="row panel-header">
-          <div class="col col-12 divider">
+          <div class="col col-12">
             <h2>Lender Maintainance</h2>
           </div>
         </div>
-        <div class="row panel-body panel-body-desktop">
-          <div class="col col-12">
-            <div class="row table-lenders table-lenders-headers">
-              <div class="col-12">
-                <div class="row">
-                  <div class="col col-1 text-center text-bold">Bank Code</div>
-                  <div class="col col-3 text-center text-bold">
+        <div class="row panel-body">
+          <div class="table-responsive">
+            <table
+              class="table table-hover table-fixed table-striped lenders-table"
+            >
+              <thead>
+                <tr>
+                  <th class="col-1 text-center lenders-table-text-bold">
+                    Bank Code
+                  </th>
+                  <th class="col-3 text-center lenders-table-text-bold">
                     Display Name
-                  </div>
-                  <div class="col col-1 text-center text-bold">Type</div>
-                  <div class="col col-3 text-center text-bold">Commission</div>
-                  <div class="col col-1 text-center text-bold">
-                    Balance Multiplier
-                  </div>
-                  <div class="col col-1 text-center text-bold">Active</div>
-                  <div class="col col-1 text-center text-bold">Hide</div>
-                  <div class="col col-1 text-center text-bold">Edit</div>
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="row">
-                  <div class="col col-1 text-center"></div>
-                  <div class="col col-3 text-center"></div>
-                  <div class="col col-1 text-center"></div>
-                  <div class="col col-1 text-center text-bold">Upfront</div>
-                  <div class="col col-1 text-center text-bold">Trail High</div>
-                  <div class="col col-1 text-center text-bold">Trail Low</div>
-                  <div class="col col-1 text-center"></div>
-                  <div class="col col-1 text-center"></div>
-                  <div class="col col-1 text-center"></div>
-                  <div class="col col-1 text-center"></div>
-                </div>
-              </div>
-            </div>
-            <div class="row table-lenders table-lenders-body">
-              <div class="col-12">
-                <div class="row table-lenders table-lenders-body">
-                  <div class="col col-1 text-center text-bold">CUA</div>
-                  <div class="col col-3 text-center">
-                    Credit Union Australia
-                  </div>
-                  <div class="col col-1 text-center">Residential</div>
-                  <div class="col col-1 text-center">%0.66</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">100</div>
-                  <div class="col col-1 text-center">
-                    <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
-                    <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </th>
+                  <th class="col-1 text-center lenders-table-text-bold">
+                    Type
+                  </th>
+                  <th class="col-3 text-center lenders-table-text-bold">
+                    <div class="row">
+                      <div class="col-12">Commission</div>
+                    </div>
+                    <div class="row">
+                      <div class="col-4 text-center">Upfront</div>
+                      <div class="col-4 text-center">Trail High</div>
+                      <div class="col-4 text-center">Trail Low</div>
+                    </div>
+                  </th>
+                  <th class="col-1 text-center lenders-table-text-bold">
+                    Balance Multipler
+                  </th>
+                  <th class="col-1 text-center lenders-table-text-bold">
+                    Active
+                  </th>
+                  <th class="col-1 text-center lenders-table-text-bold">
+                    Hide
+                  </th>
+                  <th class="col-1 text-center lenders-table-text-bold">
+                    Edit
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="col-1 text-center lenders-table-text-bold">CUA</td>
+                  <td class="col-3 text-center">Credit Union Australia</td>
+                  <td class="col-1 text-center">Residential</td>
+                  <td class="col-3 text-center">
+                    <div class="row">
+                      <div class="col-4 text-center">%0.66</div>
+                      <div class="col-4 text-center">%0.17</div>
+                      <div class="col-4 text-center">%0.17</div>
+                    </div>
+                  </td>
+                  <td class="col-1 text-center">100</td>
+                  <td class="col-1 text-center">
+                    <input type="checkbox" disabled checked />
+                  </td>
+                  <td class="col-1 text-center">
+                    <input type="checkbox" disabled checked />
+                  </td>
+                  <td class="col-1 text-center">
                     <i class="fa fa-pencil" aria-hidden="true"></i> Edit
-                  </div>
-                </div>
-                <div class="row table-lenders table-lenders-body">
-                  <div class="col col-1 text-center text-bold">CUA</div>
-                  <div class="col col-3 text-center">
-                    Credit Union Australia
-                  </div>
-                  <div class="col col-1 text-center">Residential</div>
-                  <div class="col col-1 text-center">%0.66</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">100</div>
-                  <div class="col col-1 text-center">
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-1 text-center lenders-table-text-bold">CUA</td>
+                  <td class="col-3 text-center">Credit Union Australia</td>
+                  <td class="col-1 text-center">Residential</td>
+                  <td class="col-3 text-center">
+                    <div class="row">
+                      <div class="col-4 text-center">%0.66</div>
+                      <div class="col-4 text-center">%0.17</div>
+                      <div class="col-4 text-center">%0.17</div>
+                    </div>
+                  </td>
+                  <td class="col-1 text-center">100</td>
+                  <td class="col-1 text-center">
+                    <input type="checkbox" disabled checked />
+                  </td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
-                    <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <i class="fa fa-pencil" aria-hidden="true"></i> Edit
-                  </div>
-                </div>
-                <div class="row table-lenders table-lenders-body">
-                  <div class="col col-1 text-center text-bold">CUA</div>
-                  <div class="col col-3 text-center">
-                    Credit Union Australia
-                  </div>
-                  <div class="col col-1 text-center">Residential</div>
-                  <div class="col col-1 text-center">%0.66</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">100</div>
-                  <div class="col col-1 text-center">
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-1 text-center lenders-table-text-bold">CUA</td>
+                  <td class="col-3 text-center">Credit Union Australia</td>
+                  <td class="col-1 text-center">Residential</td>
+                  <td class="col-3 text-center">
+                    <div class="row">
+                      <div class="col-4 text-center">%0.66</div>
+                      <div class="col-4 text-center">%0.17</div>
+                      <div class="col-4 text-center">%0.17</div>
+                    </div>
+                  </td>
+                  <td class="col-1 text-center">100</td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
-                    <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
+                    <input type="checkbox" disabled checked />
+                  </td>
+                  <td class="col-1 text-center">
                     <i class="fa fa-pencil" aria-hidden="true"></i> Edit
-                  </div>
-                </div>
-                <div class="row table-lenders table-lenders-body">
-                  <div class="col col-1 text-center text-bold">CUA</div>
-                  <div class="col col-3 text-center">
-                    Credit Union Australia
-                  </div>
-                  <div class="col col-1 text-center">Residential</div>
-                  <div class="col col-1 text-center">%0.66</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">100</div>
-                  <div class="col col-1 text-center">
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-1 text-center lenders-table-text-bold">CUA</td>
+                  <td class="col-3 text-center">Credit Union Australia</td>
+                  <td class="col-1 text-center">Residential</td>
+                  <td class="col-3 text-center">
+                    <div class="row">
+                      <div class="col-4 text-center">%0.66</div>
+                      <div class="col-4 text-center">%0.17</div>
+                      <div class="col-4 text-center">%0.17</div>
+                    </div>
+                  </td>
+                  <td class="col-1 text-center">100</td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <i class="fa fa-pencil" aria-hidden="true"></i> Edit
-                  </div>
-                </div>
-                <div class="row table-lenders table-lenders-body">
-                  <div class="col col-1 text-center text-bold">CUA</div>
-                  <div class="col col-3 text-center">
-                    Credit Union Australia
-                  </div>
-                  <div class="col col-1 text-center">Residential</div>
-                  <div class="col col-1 text-center">%0.66</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">100</div>
-                  <div class="col col-1 text-center">
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-1 text-center lenders-table-text-bold">CUA</td>
+                  <td class="col-3 text-center">Credit Union Australia</td>
+                  <td class="col-1 text-center">Residential</td>
+                  <td class="col-3 text-center">
+                    <div class="row">
+                      <div class="col-4 text-center">%0.66</div>
+                      <div class="col-4 text-center">%0.17</div>
+                      <div class="col-4 text-center">%0.17</div>
+                    </div>
+                  </td>
+                  <td class="col-1 text-center">100</td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <i class="fa fa-pencil" aria-hidden="true"></i> Edit
-                  </div>
-                </div>
-                <div class="row table-lenders table-lenders-body">
-                  <div class="col col-1 text-center text-bold">CUA</div>
-                  <div class="col col-3 text-center">
-                    Credit Union Australia
-                  </div>
-                  <div class="col col-1 text-center">Residential</div>
-                  <div class="col col-1 text-center">%0.66</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">100</div>
-                  <div class="col col-1 text-center">
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-1 text-center lenders-table-text-bold">CUA</td>
+                  <td class="col-3 text-center">Credit Union Australia</td>
+                  <td class="col-1 text-center">Residential</td>
+                  <td class="col-3 text-center">
+                    <div class="row">
+                      <div class="col-4 text-center">%0.66</div>
+                      <div class="col-4 text-center">%0.17</div>
+                      <div class="col-4 text-center">%0.17</div>
+                    </div>
+                  </td>
+                  <td class="col-1 text-center">100</td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <i class="fa fa-pencil" aria-hidden="true"></i> Edit
-                  </div>
-                </div>
-                <div class="row table-lenders table-lenders-body">
-                  <div class="col col-1 text-center text-bold">CUA</div>
-                  <div class="col col-3 text-center">
-                    Credit Union Australia
-                  </div>
-                  <div class="col col-1 text-center">Residential</div>
-                  <div class="col col-1 text-center">%0.66</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">100</div>
-                  <div class="col col-1 text-center">
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-1 text-center lenders-table-text-bold">CUA</td>
+                  <td class="col-3 text-center">Credit Union Australia</td>
+                  <td class="col-1 text-center">Residential</td>
+                  <td class="col-3 text-center">
+                    <div class="row">
+                      <div class="col-4 text-center">%0.66</div>
+                      <div class="col-4 text-center">%0.17</div>
+                      <div class="col-4 text-center">%0.17</div>
+                    </div>
+                  </td>
+                  <td class="col-1 text-center">100</td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <i class="fa fa-pencil" aria-hidden="true"></i> Edit
-                  </div>
-                </div>
-                <div class="row table-lenders table-lenders-body">
-                  <div class="col col-1 text-center text-bold">CUA</div>
-                  <div class="col col-3 text-center">
-                    Credit Union Australia
-                  </div>
-                  <div class="col col-1 text-center">Residential</div>
-                  <div class="col col-1 text-center">%0.66</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">100</div>
-                  <div class="col col-1 text-center">
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-1 text-center lenders-table-text-bold">CUA</td>
+                  <td class="col-3 text-center">Credit Union Australia</td>
+                  <td class="col-1 text-center">Residential</td>
+                  <td class="col-3 text-center">
+                    <div class="row">
+                      <div class="col-4 text-center">%0.66</div>
+                      <div class="col-4 text-center">%0.17</div>
+                      <div class="col-4 text-center">%0.17</div>
+                    </div>
+                  </td>
+                  <td class="col-1 text-center">100</td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <i class="fa fa-pencil" aria-hidden="true"></i> Edit
-                  </div>
-                </div>
-                <div class="row table-lenders table-lenders-body">
-                  <div class="col col-1 text-center text-bold">CUA</div>
-                  <div class="col col-3 text-center">
-                    Credit Union Australia
-                  </div>
-                  <div class="col col-1 text-center">Residential</div>
-                  <div class="col col-1 text-center">%0.66</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">100</div>
-                  <div class="col col-1 text-center">
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-1 text-center lenders-table-text-bold">CUA</td>
+                  <td class="col-3 text-center">Credit Union Australia</td>
+                  <td class="col-1 text-center">Residential</td>
+                  <td class="col-3 text-center">
+                    <div class="row">
+                      <div class="col-4 text-center">%0.66</div>
+                      <div class="col-4 text-center">%0.17</div>
+                      <div class="col-4 text-center">%0.17</div>
+                    </div>
+                  </td>
+                  <td class="col-1 text-center">100</td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <i class="fa fa-pencil" aria-hidden="true"></i> Edit
-                  </div>
-                </div>
-                <div class="row table-lenders table-lenders-body">
-                  <div class="col col-1 text-center text-bold">CUA</div>
-                  <div class="col col-3 text-center">
-                    Credit Union Australia
-                  </div>
-                  <div class="col col-1 text-center">Residential</div>
-                  <div class="col col-1 text-center">%0.66</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">100</div>
-                  <div class="col col-1 text-center">
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-1 text-center lenders-table-text-bold">CUA</td>
+                  <td class="col-3 text-center">Credit Union Australia</td>
+                  <td class="col-1 text-center">Residential</td>
+                  <td class="col-3 text-center">
+                    <div class="row">
+                      <div class="col-4 text-center">%0.66</div>
+                      <div class="col-4 text-center">%0.17</div>
+                      <div class="col-4 text-center">%0.17</div>
+                    </div>
+                  </td>
+                  <td class="col-1 text-center">100</td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <i class="fa fa-pencil" aria-hidden="true"></i> Edit
-                  </div>
-                </div>
-                <div class="row table-lenders table-lenders-body">
-                  <div class="col col-1 text-center text-bold">CUA</div>
-                  <div class="col col-3 text-center">
-                    Credit Union Australia
-                  </div>
-                  <div class="col col-1 text-center">Residential</div>
-                  <div class="col col-1 text-center">%0.66</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">100</div>
-                  <div class="col col-1 text-center">
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-1 text-center lenders-table-text-bold">CUA</td>
+                  <td class="col-3 text-center">Credit Union Australia</td>
+                  <td class="col-1 text-center">Residential</td>
+                  <td class="col-3 text-center">
+                    <div class="row">
+                      <div class="col-4 text-center">%0.66</div>
+                      <div class="col-4 text-center">%0.17</div>
+                      <div class="col-4 text-center">%0.17</div>
+                    </div>
+                  </td>
+                  <td class="col-1 text-center">100</td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <i class="fa fa-pencil" aria-hidden="true"></i> Edit
-                  </div>
-                </div>
-                <div class="row table-lenders table-lenders-body">
-                  <div class="col col-1 text-center text-bold">CUA</div>
-                  <div class="col col-3 text-center">
-                    Credit Union Australia
-                  </div>
-                  <div class="col col-1 text-center">Residential</div>
-                  <div class="col col-1 text-center">%0.66</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">100</div>
-                  <div class="col col-1 text-center">
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-1 text-center lenders-table-text-bold">CUA</td>
+                  <td class="col-3 text-center">Credit Union Australia</td>
+                  <td class="col-1 text-center">Residential</td>
+                  <td class="col-3 text-center">
+                    <div class="row">
+                      <div class="col-4 text-center">%0.66</div>
+                      <div class="col-4 text-center">%0.17</div>
+                      <div class="col-4 text-center">%0.17</div>
+                    </div>
+                  </td>
+                  <td class="col-1 text-center">100</td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <i class="fa fa-pencil" aria-hidden="true"></i> Edit
-                  </div>
-                </div>
-                <div class="row table-lenders table-lenders-body">
-                  <div class="col col-1 text-center text-bold">CUA</div>
-                  <div class="col col-3 text-center">
-                    Credit Union Australia
-                  </div>
-                  <div class="col col-1 text-center">Residential</div>
-                  <div class="col col-1 text-center">%0.66</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">100</div>
-                  <div class="col col-1 text-center">
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-1 text-center lenders-table-text-bold">CUA</td>
+                  <td class="col-3 text-center">Credit Union Australia</td>
+                  <td class="col-1 text-center">Residential</td>
+                  <td class="col-3 text-center">
+                    <div class="row">
+                      <div class="col-4 text-center">%0.66</div>
+                      <div class="col-4 text-center">%0.17</div>
+                      <div class="col-4 text-center">%0.17</div>
+                    </div>
+                  </td>
+                  <td class="col-1 text-center">100</td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <i class="fa fa-pencil" aria-hidden="true"></i> Edit
-                  </div>
-                </div>
-                <div class="row table-lenders table-lenders-body">
-                  <div class="col col-1 text-center text-bold">CUA</div>
-                  <div class="col col-3 text-center">
-                    Credit Union Australia
-                  </div>
-                  <div class="col col-1 text-center">Residential</div>
-                  <div class="col col-1 text-center">%0.66</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">100</div>
-                  <div class="col col-1 text-center">
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-1 text-center lenders-table-text-bold">CUA</td>
+                  <td class="col-3 text-center">Credit Union Australia</td>
+                  <td class="col-1 text-center">Residential</td>
+                  <td class="col-3 text-center">
+                    <div class="row">
+                      <div class="col-4 text-center">%0.66</div>
+                      <div class="col-4 text-center">%0.17</div>
+                      <div class="col-4 text-center">%0.17</div>
+                    </div>
+                  </td>
+                  <td class="col-1 text-center">100</td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <i class="fa fa-pencil" aria-hidden="true"></i> Edit
-                  </div>
-                </div>
-                <div class="row table-lenders table-lenders-body">
-                  <div class="col col-1 text-center text-bold">CUA</div>
-                  <div class="col col-3 text-center">
-                    Credit Union Australia
-                  </div>
-                  <div class="col col-1 text-center">Residential</div>
-                  <div class="col col-1 text-center">%0.66</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">100</div>
-                  <div class="col col-1 text-center">
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-1 text-center lenders-table-text-bold">CUA</td>
+                  <td class="col-3 text-center">Credit Union Australia</td>
+                  <td class="col-1 text-center">Residential</td>
+                  <td class="col-3 text-center">
+                    <div class="row">
+                      <div class="col-4 text-center">%0.66</div>
+                      <div class="col-4 text-center">%0.17</div>
+                      <div class="col-4 text-center">%0.17</div>
+                    </div>
+                  </td>
+                  <td class="col-1 text-center">100</td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <i class="fa fa-pencil" aria-hidden="true"></i> Edit
-                  </div>
-                </div>
-                <div class="row table-lenders table-lenders-body">
-                  <div class="col col-1 text-center text-bold">CUA</div>
-                  <div class="col col-3 text-center">
-                    Credit Union Australia
-                  </div>
-                  <div class="col col-1 text-center">Residential</div>
-                  <div class="col col-1 text-center">%0.66</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">100</div>
-                  <div class="col col-1 text-center">
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-1 text-center lenders-table-text-bold">CUA</td>
+                  <td class="col-3 text-center">Credit Union Australia</td>
+                  <td class="col-1 text-center">Residential</td>
+                  <td class="col-3 text-center">
+                    <div class="row">
+                      <div class="col-4 text-center">%0.66</div>
+                      <div class="col-4 text-center">%0.17</div>
+                      <div class="col-4 text-center">%0.17</div>
+                    </div>
+                  </td>
+                  <td class="col-1 text-center">100</td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <i class="fa fa-pencil" aria-hidden="true"></i> Edit
-                  </div>
-                </div>
-                <div class="row table-lenders table-lenders-body">
-                  <div class="col col-1 text-center text-bold">CUA</div>
-                  <div class="col col-3 text-center">
-                    Credit Union Australia
-                  </div>
-                  <div class="col col-1 text-center">Residential</div>
-                  <div class="col col-1 text-center">%0.66</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">100</div>
-                  <div class="col col-1 text-center">
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-1 text-center lenders-table-text-bold">CUA</td>
+                  <td class="col-3 text-center">Credit Union Australia</td>
+                  <td class="col-1 text-center">Residential</td>
+                  <td class="col-3 text-center">
+                    <div class="row">
+                      <div class="col-4 text-center">%0.66</div>
+                      <div class="col-4 text-center">%0.17</div>
+                      <div class="col-4 text-center">%0.17</div>
+                    </div>
+                  </td>
+                  <td class="col-1 text-center">100</td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <i class="fa fa-pencil" aria-hidden="true"></i> Edit
-                  </div>
-                </div>
-                <div class="row table-lenders table-lenders-body">
-                  <div class="col col-1 text-center text-bold">CUA</div>
-                  <div class="col col-3 text-center">
-                    Credit Union Australia
-                  </div>
-                  <div class="col col-1 text-center">Residential</div>
-                  <div class="col col-1 text-center">%0.66</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">100</div>
-                  <div class="col col-1 text-center">
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-1 text-center lenders-table-text-bold">CUA</td>
+                  <td class="col-3 text-center">Credit Union Australia</td>
+                  <td class="col-1 text-center">Residential</td>
+                  <td class="col-3 text-center">
+                    <div class="row">
+                      <div class="col-4 text-center">%0.66</div>
+                      <div class="col-4 text-center">%0.17</div>
+                      <div class="col-4 text-center">%0.17</div>
+                    </div>
+                  </td>
+                  <td class="col-1 text-center">100</td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <i class="fa fa-pencil" aria-hidden="true"></i> Edit
-                  </div>
-                </div>
-                <div class="row table-lenders table-lenders-body">
-                  <div class="col col-1 text-center text-bold">CUA</div>
-                  <div class="col col-3 text-center">
-                    Credit Union Australia
-                  </div>
-                  <div class="col col-1 text-center">Residential</div>
-                  <div class="col col-1 text-center">%0.66</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">100</div>
-                  <div class="col col-1 text-center">
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-1 text-center lenders-table-text-bold">CUA</td>
+                  <td class="col-3 text-center">Credit Union Australia</td>
+                  <td class="col-1 text-center">Residential</td>
+                  <td class="col-3 text-center">
+                    <div class="row">
+                      <div class="col-4 text-center">%0.66</div>
+                      <div class="col-4 text-center">%0.17</div>
+                      <div class="col-4 text-center">%0.17</div>
+                    </div>
+                  </td>
+                  <td class="col-1 text-center">100</td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <i class="fa fa-pencil" aria-hidden="true"></i> Edit
-                  </div>
-                </div>
-                <div class="row table-lenders table-lenders-body">
-                  <div class="col col-1 text-center text-bold">CUA</div>
-                  <div class="col col-3 text-center">
-                    Credit Union Australia
-                  </div>
-                  <div class="col col-1 text-center">Residential</div>
-                  <div class="col col-1 text-center">%0.66</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">%0.17</div>
-                  <div class="col col-1 text-center">100</div>
-                  <div class="col col-1 text-center">
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-1 text-center lenders-table-text-bold">CUA</td>
+                  <td class="col-3 text-center">Credit Union Australia</td>
+                  <td class="col-1 text-center">Residential</td>
+                  <td class="col-3 text-center">
+                    <div class="row">
+                      <div class="col-4 text-center">%0.66</div>
+                      <div class="col-4 text-center">%0.17</div>
+                      <div class="col-4 text-center">%0.17</div>
+                    </div>
+                  </td>
+                  <td class="col-1 text-center">100</td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <input type="checkbox" disabled />
-                  </div>
-                  <div class="col col-1 text-center">
+                  </td>
+                  <td class="col-1 text-center">
                     <i class="fa fa-pencil" aria-hidden="true"></i> Edit
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row panel-body panel-body-mobile">
-          <div class="col col-12">
-            <div class="row table-lenders table-lenders-headers">
-              <div class="col col-12 mb-2 text-bold">Bank Code</div>
-              <div class="col col-12 mb-2 text-bold">Display Name</div>
-              <div class="col col-12 mb-2 text-bold">Type</div>
-              <div class="col col-12 mb-2 text-bold">Commission</div>
-              <div class="col col-12 mb-2 text-bold">Upfront</div>
-              <div class="col col-12 mb-2 text-bold">Trail High</div>
-              <div class="col col-12 mb-2 text-bold">Trail Low</div>
-              <div class="col col-12 mb-2 text-bold">Balance Multiplier</div>
-              <div class="col col-12 mb-2 text-bold">Active</div>
-              <div class="col col-12 mb-2 text-bold">Hide</div>
-              <div class="col col-12 mb-2 text-bold">Edit</div>
-            </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-1 text-center lenders-table-text-bold">CUA</td>
+                  <td class="col-3 text-center">Credit Union Australia</td>
+                  <td class="col-1 text-center">Residential</td>
+                  <td class="col-3 text-center">
+                    <div class="row">
+                      <div class="col-4 text-center">%0.66</div>
+                      <div class="col-4 text-center">%0.17</div>
+                      <div class="col-4 text-center">%0.17</div>
+                    </div>
+                  </td>
+                  <td class="col-1 text-center">100</td>
+                  <td class="col-1 text-center">
+                    <input type="checkbox" disabled />
+                  </td>
+                  <td class="col-1 text-center">
+                    <input type="checkbox" disabled />
+                  </td>
+                  <td class="col-1 text-center">
+                    <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-1 text-center lenders-table-text-bold">CUA</td>
+                  <td class="col-3 text-center">Credit Union Australia</td>
+                  <td class="col-1 text-center">Residential</td>
+                  <td class="col-3 text-center">
+                    <div class="row">
+                      <div class="col-4 text-center">%0.66</div>
+                      <div class="col-4 text-center">%0.17</div>
+                      <div class="col-4 text-center">%0.17</div>
+                    </div>
+                  </td>
+                  <td class="col-1 text-center">100</td>
+                  <td class="col-1 text-center">
+                    <input type="checkbox" disabled />
+                  </td>
+                  <td class="col-1 text-center">
+                    <input type="checkbox" disabled />
+                  </td>
+                  <td class="col-1 text-center">
+                    <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-1 text-center lenders-table-text-bold">CUA</td>
+                  <td class="col-3 text-center">Credit Union Australia</td>
+                  <td class="col-1 text-center">Residential</td>
+                  <td class="col-3 text-center">
+                    <div class="row">
+                      <div class="col-4 text-center">%0.66</div>
+                      <div class="col-4 text-center">%0.17</div>
+                      <div class="col-4 text-center">%0.17</div>
+                    </div>
+                  </td>
+                  <td class="col-1 text-center">100</td>
+                  <td class="col-1 text-center">
+                    <input type="checkbox" disabled />
+                  </td>
+                  <td class="col-1 text-center">
+                    <input type="checkbox" disabled />
+                  </td>
+                  <td class="col-1 text-center">
+                    <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-1 text-center lenders-table-text-bold">CUA</td>
+                  <td class="col-3 text-center">Credit Union Australia</td>
+                  <td class="col-1 text-center">Residential</td>
+                  <td class="col-3 text-center">
+                    <div class="row">
+                      <div class="col-4 text-center">%0.66</div>
+                      <div class="col-4 text-center">%0.17</div>
+                      <div class="col-4 text-center">%0.17</div>
+                    </div>
+                  </td>
+                  <td class="col-1 text-center">100</td>
+                  <td class="col-1 text-center">
+                    <input type="checkbox" disabled />
+                  </td>
+                  <td class="col-1 text-center">
+                    <input type="checkbox" disabled />
+                  </td>
+                  <td class="col-1 text-center">
+                    <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-1 text-center lenders-table-text-bold">CUA</td>
+                  <td class="col-3 text-center">Credit Union Australia</td>
+                  <td class="col-1 text-center">Residential</td>
+                  <td class="col-3 text-center">
+                    <div class="row">
+                      <div class="col-4 text-center">%0.66</div>
+                      <div class="col-4 text-center">%0.17</div>
+                      <div class="col-4 text-center">%0.17</div>
+                    </div>
+                  </td>
+                  <td class="col-1 text-center">100</td>
+                  <td class="col-1 text-center">
+                    <input type="checkbox" disabled />
+                  </td>
+                  <td class="col-1 text-center">
+                    <input type="checkbox" disabled />
+                  </td>
+                  <td class="col-1 text-center">
+                    <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-1 text-center lenders-table-text-bold">CUA</td>
+                  <td class="col-3 text-center">Credit Union Australia</td>
+                  <td class="col-1 text-center">Residential</td>
+                  <td class="col-3 text-center">
+                    <div class="row">
+                      <div class="col-4 text-center">%0.66</div>
+                      <div class="col-4 text-center">%0.17</div>
+                      <div class="col-4 text-center">%0.17</div>
+                    </div>
+                  </td>
+                  <td class="col-1 text-center">100</td>
+                  <td class="col-1 text-center">
+                    <input type="checkbox" disabled />
+                  </td>
+                  <td class="col-1 text-center">
+                    <input type="checkbox" disabled />
+                  </td>
+                  <td class="col-1 text-center">
+                    <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-1 text-center lenders-table-text-bold">CUA</td>
+                  <td class="col-3 text-center">Credit Union Australia</td>
+                  <td class="col-1 text-center">Residential</td>
+                  <td class="col-3 text-center">
+                    <div class="row">
+                      <div class="col-4 text-center">%0.66</div>
+                      <div class="col-4 text-center">%0.17</div>
+                      <div class="col-4 text-center">%0.17</div>
+                    </div>
+                  </td>
+                  <td class="col-1 text-center">100</td>
+                  <td class="col-1 text-center">
+                    <input type="checkbox" disabled />
+                  </td>
+                  <td class="col-1 text-center">
+                    <input type="checkbox" disabled />
+                  </td>
+                  <td class="col-1 text-center">
+                    <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

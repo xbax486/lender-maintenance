@@ -10,54 +10,42 @@
 }
 
 .panel-header {
-    margin: 15px 40px;
+    padding: 15px 40px;
+    margin: 0;
+    border-bottom: 1px solid #efefef;
 }
 
 .panel-body {
-    margin: 30px 40px;
-}
-
-.divider {
-    border-bottom: 1px solid #efefef;
+    padding: 30px 40px;
+    margin: 0;
 }
 
 .panel-header h2 {
     color: #1fb394;
 }
 
-.text-bold {
+.lenders-table-text-bold {
     color: #656565;
     font-weight: bold;
 }
 
-.table-lenders-body {
-    padding: 15px 0;
-    overflow: auto;
-    max-height: 1000px;
+.lenders-table {
+    min-width: 1140px;
 }
 
-.table-lenders-body:nth-of-type(odd)  {
-    background-color: rgba(0,0,0,.05);
-    border-top: 1px solid #efefef;
-    border-bottom: 1px solid #efefef;
+.lenders-table tbody {
+    display: block;
+    height: 1000px;
+    overflow-y: auto;
 }
 
-@media (max-width: 1200px) {
-    .panel-body-desktop {
-        display: none;
-    }
-
-    .panel-body-mobile {
-        display: flex;
-    }
+.lenders-table thead, .lenders-table tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
 }
 
-@media (min-width: 1201px) {
-    .panel-body-desktop {
-        display: flex;
-    }
-
-    .panel-body-mobile {
-        display: none;
-    }
+.lenders-table tr th {
+    border: none;
+    vertical-align: top;
 }
