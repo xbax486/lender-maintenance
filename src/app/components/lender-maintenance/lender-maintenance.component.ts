@@ -14,7 +14,7 @@ import { ErrorHandleService } from './../../services/error-handle.service';
 })
 export class LenderMaintenanceComponent implements OnDestroy {
   lenders: Lender[] = [];
-  lendersInTable: Lender[] = [];
+  lendersWithEdited: Lender[] = [];
   banks: Bank[] = [];
   types: string[] = [];
 
@@ -41,32 +41,21 @@ export class LenderMaintenanceComponent implements OnDestroy {
   }
 
   public fetchLenders() {
-    this.clearAllSubscriptions();
-
     this.lenderStartLoaded = true;
 
+    this.clearAllSubscriptions();
     this.fetchLendersSubscription = this.lenderService
       .getLenders()
       .subscribe((lendersResult) => {
         if (lendersResult && lendersResult.data) {
           this.lenders = lendersResult.data;
-          this.lenderStartLoaded = false;
-          this.lenderLoadedSucceed = true;
-          this.toastService.success(
-            'Lenders are fetched successfully!',
-            'Success'
-          );
-          this.addEditMode();
+          this.uploadLoadingStatusFlags(false, true);
+          this.sendToastMessageWhenDataIsLoaded();
+          this.enableEditMode();
         }
       });
 
-    this.hanldeErrorsSubscription =
-      this.errorHandleService.errorOccurSubject.subscribe((error) => {
-        if (error) {
-          this.lenderStartLoaded = false;
-          this.lenderLoadedSucceed = false;
-        }
-      });
+    this.subscribeToGlobalErrorHanlder();
   }
 
   public toggleIsEdit(lender: Lender) {
@@ -105,10 +94,31 @@ export class LenderMaintenanceComponent implements OnDestroy {
       });
   }
 
-  private addEditMode() {
-    this.lendersInTable = this.lenders.map((lender) => {
+  private enableEditMode() {
+    this.lendersWithEdited = this.lenders.map((lender) => {
       return { ...lender, isEditMode: false };
     });
+  }
+
+  private uploadLoadingStatusFlags(
+    lenderStartLoaded: boolean,
+    lenderLoadedSucceed: boolean
+  ) {
+    this.lenderStartLoaded = lenderStartLoaded;
+    this.lenderLoadedSucceed = lenderLoadedSucceed;
+  }
+
+  private sendToastMessageWhenDataIsLoaded() {
+    this.toastService.success('Lenders are fetched successfully!', 'Success');
+  }
+
+  private subscribeToGlobalErrorHanlder() {
+    this.hanldeErrorsSubscription =
+      this.errorHandleService.errorOccurSubject.subscribe((error) => {
+        if (error) {
+          this.uploadLoadingStatusFlags(false, false);
+        }
+      });
   }
 
   private clearAllSubscriptions() {
