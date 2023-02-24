@@ -4,18 +4,19 @@ import { Observable, delay } from 'rxjs';
 
 import { LenderJsonResult } from '../models/lender';
 
+const TIME_TO_FETCH_DATA = 3000;
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LenderService {
   private _jsonURL = 'assets/lenders.json';
-  private delayTime = 2000;
 
-  constructor(private http: HttpClient) {
-    
-  }
+  constructor(private http: HttpClient) {}
 
   public getLenders(): Observable<LenderJsonResult> {
-    return this.http.get<LenderJsonResult>(this._jsonURL).pipe(delay(this.delayTime));
+    return this.http
+      .get<LenderJsonResult>(this._jsonURL)
+      .pipe(delay(TIME_TO_FETCH_DATA));
   }
 }

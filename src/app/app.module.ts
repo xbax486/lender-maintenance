@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
+
+import { InterceptorService } from './services/interceptor.service';
 
 import { AppComponent } from './app.component';
 import { LenderMaintenanceComponent } from './components/lender-maintenance/lender-maintenance.component';
@@ -11,14 +15,22 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
   declarations: [
     AppComponent,
     LenderMaintenanceComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -8,8 +8,16 @@
           </div>
         </div>
         <div class="row panel-body">
-          <app-loading-spinner *ngIf="!lenderLoaded"></app-loading-spinner>
-          <div *ngIf="lenderLoaded" class="table-responsive">
+          <app-loading-spinner *ngIf="lenderStartLoaded"></app-loading-spinner>
+          <div *ngIf="!lenderStartLoaded && !lenderLoadedSucceed" class="col">
+            <button class="btn btn-primary" (click)="fetchLenders()">
+              Retry
+            </button>
+          </div>
+          <div
+            *ngIf="!lenderStartLoaded && lenderLoadedSucceed"
+            class="table-responsive"
+          >
             <table
               class="table table-hover table-fixed table-striped lenders-table"
             >
