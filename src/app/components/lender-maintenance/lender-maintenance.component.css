@@ -60,3 +60,8 @@
 .lenders-table .edit-button {
   cursor: pointer;
 }
+
+.lenders-table .input-number {
+  width: 53px;
+  height: 25px;
+}

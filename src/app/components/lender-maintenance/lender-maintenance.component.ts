@@ -78,6 +78,44 @@ export class LenderMaintenanceComponent implements OnDestroy {
     lender.attributes.name = value;
   }
 
+  public onUpfrontChanged($event: Event, lender: Lender) {
+    let value = Number(($event.target as HTMLInputElement).value);
+    if (value >= 0) {
+      lender.attributes.upfont_commission = value;
+    }
+  }
+
+  public onHighTrailChanged($event: Event, lender: Lender) {
+    let value = Number(($event.target as HTMLInputElement).value);
+    if (value >= 0) {
+      lender.attributes.high_trail_commission = value;
+    }
+  }
+
+  public onLowTrailChanged($event: Event, lender: Lender) {
+    let value = Number(($event.target as HTMLInputElement).value);
+    if (value >= 0) {
+      lender.attributes.low_trail_commission = value;
+    }
+  }
+
+  public onBalanceMultiplierChanged($event: Event, lender: Lender) {
+    let value = Number(($event.target as HTMLInputElement).value);
+    if (value >= 0) {
+      lender.attributes.balance_multiplier = value;
+    }
+  }
+
+  public onIsActiveChanged($event: Event, lender: Lender) {
+    let checked = ($event.target as HTMLInputElement).checked;
+    lender.attributes.is_active = checked;
+  }
+
+  public onIsHiddenChanged($event: Event, lender: Lender) {
+    let checked = ($event.target as HTMLInputElement).checked;
+    lender.attributes.is_hidden = checked;
+  }
+
   private fetchBanks() {
     this.fetchBanksSubscription = this.lenderService
       .getLendersBanks()
