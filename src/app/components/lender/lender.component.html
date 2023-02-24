@@ -1,0 +1,92 @@
+<div class="app-lender">
+  <form>
+    <div class="row">
+      <div class="col mb-2">
+        <label for="bankCode" class="form-label">Bank Code</label>
+        <select class="form-select" aria-label="bank code">
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col mb-2">
+        <label for="displayName" class="form-label">Display Name</label>
+        <select class="form-select" aria-label="display name">
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col mb-2">
+        <label for="type" class="form-label">Type</label>
+        <select class="form-select" aria-label="type">
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col mb-2">
+        <label for="upfront" class="form-label">Upfront</label>
+        <input type="number" class="form-control" id="upfront" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col mb-2">
+        <label for="trailHigh" class="form-label">Trail High</label>
+        <input type="number" class="form-control" id="trailHigh" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col mb-2">
+        <label for="trailLow" class="form-label">Trail Low</label>
+        <input type="number" class="form-control" id="trailLow" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col mb-2">
+        <label for="balanceMultiplier" class="form-label">
+          Balance Multiplier
+        </label>
+        <input type="number" class="form-control" id="balanceMultiplier" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col mb-2">
+        <div class="form-check">
+          <label for="active" class="form-label">Active</label>
+          <input class="form-check-input" type="checkbox" id="active" />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col mb-2">
+        <div class="form-check">
+          <label for="hide" class="form-label">Hide</label>
+          <input class="form-check-input" type="checkbox" id="hide" />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col mb-4">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="onCancelClicked()"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

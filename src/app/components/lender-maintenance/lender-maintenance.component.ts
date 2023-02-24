@@ -1,4 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { Lender, Bank } from './../../models/lender';
@@ -27,7 +28,8 @@ export class LenderMaintenanceComponent implements OnDestroy {
   constructor(
     private lenderService: LenderService,
     private toastService: ToastrService,
-    private errorHandleService: ErrorHandleService
+    private errorHandleService: ErrorHandleService,
+    private router: Router
   ) {
     this.fetchLenders();
   }
@@ -58,6 +60,7 @@ export class LenderMaintenanceComponent implements OnDestroy {
 
   public toggleIsEdit(lender: Lender) {
     lender.isEditMode = !lender.isEditMode;
+    this.router.navigate(['/lender', lender.id]);
   }
 
   public onBankChanged($event: Event, lender: Lender, property: string) {

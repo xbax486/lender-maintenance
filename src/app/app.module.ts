@@ -10,12 +10,14 @@ import { InterceptorService } from './services/interceptor.service';
 import { AppComponent } from './app.component';
 import { LenderMaintenanceComponent } from './components/lender-maintenance/lender-maintenance.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { LenderComponent } from './components/lender/lender.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LenderMaintenanceComponent,
     LoadingSpinnerComponent,
+    LenderComponent,
   ],
   imports: [
     BrowserModule,
