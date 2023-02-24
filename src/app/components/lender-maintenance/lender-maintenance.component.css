@@ -1,57 +1,62 @@
 .app-lender-maintenance {
-    background: #e6ebf1;
+  background: #e6ebf1;
 }
 
 .app-lender-maintenance .panel {
-    background: #ffffff;
-    margin: 15px;
-    border-radius: 8px;
-    padding: 15px 0;
+  background: #ffffff;
+  margin: 15px;
+  border-radius: 8px;
+  padding: 15px 0;
 }
 
 .panel-header {
-    padding: 15px 40px;
-    margin: 0;
-    border-bottom: 1px solid #efefef;
+  padding: 15px 40px;
+  margin: 0;
+  border-bottom: 1px solid #efefef;
 }
 
 .panel-body {
-    padding: 30px 40px;
-    margin: 0;
+  padding: 30px 40px;
+  margin: 0;
 }
 
 .panel-header h2 {
-    color: #1fb394;
+  color: #1fb394;
 }
 
 .lenders-table-text-bold {
-    color: #656565;
-    font-weight: bold;
+  color: #656565;
+  font-weight: bold;
 }
 
 .lenders-table {
-    min-width: 1140px;
+  min-width: 1140px;
 }
 
 .lenders-table tbody {
-    display: block;
-    height: 500px;
-    overflow-y: auto;
-    direction: rtl;
-    margin: 0 0 0 -15px;
+  display: block;
+  height: 500px;
+  overflow-y: auto;
+  direction: rtl;
+  margin: 0 0 0 -15px;
 }
 
 .lenders-table tbody > tr {
-    direction: ltr;
+  direction: ltr;
 }
 
-.lenders-table thead, .lenders-table tbody tr {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
+.lenders-table thead,
+.lenders-table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
 }
 
 .lenders-table tr th {
-    border: none;
-    vertical-align: top;
+  border: none;
+  vertical-align: top;
+}
+
+.lenders-table .edit-button {
+  cursor: pointer;
 }
