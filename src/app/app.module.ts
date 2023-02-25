@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { LenderMaintenanceComponent } from './components/lender-maintenance/lender-maintenance.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { LenderComponent } from './components/lender/lender.component';
+import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { LenderComponent } from './components/lender/lender.component';
     LenderMaintenanceComponent,
     LoadingSpinnerComponent,
     LenderComponent,
+    ConfirmModalComponent,
   ],
   imports: [
     BrowserModule,

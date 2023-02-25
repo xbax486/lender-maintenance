@@ -18,11 +18,7 @@ export class AuthGuardService implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ):
-    | boolean
-    | UrlTree
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree> {
+  ): boolean | Observable<boolean> | Promise<boolean> {
     if (this.lenderService.banksAndTypesLoaded()) {
       return true;
     } else {

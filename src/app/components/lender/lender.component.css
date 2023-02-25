@@ -1,3 +1,7 @@
 .app-lender {
   margin: 15px 0;
 }
+
+.app-lender button {
+  width: 75px;
+}

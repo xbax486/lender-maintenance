@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { ToastrService } from 'ngx-toastr';
 
 import { Lender } from './../../models/lender';
 
@@ -24,16 +23,15 @@ export class LenderMaintenanceComponent implements OnInit, OnDestroy {
 
   constructor(
     private lenderService: LenderService,
-    private toastService: ToastrService,
     private errorHandleService: ErrorHandleService,
     private router: Router
   ) {}
 
   ngOnInit() {
+    this.hanleLendersLoaded();
     this.lenders = this.lenderService.getLenders();
     if (this.lenders.length === 0) {
       this.fetchLenders();
-      this.hanleLendersLoaded();
     } else {
       this.uploadLoadingStatusFlags(false, true);
     }
@@ -53,9 +51,8 @@ export class LenderMaintenanceComponent implements OnInit, OnDestroy {
     this.fetchLendersSubscription = this.lenderService.lenders$.subscribe(
       (lenders: Lender[]) => {
         if (lenders && lenders.length > 0) {
-          this.lenders = [...lenders];
+          this.lenders = lenders;
           this.uploadLoadingStatusFlags(false, true);
-          this.sendToastMessageWhenDataIsLoaded();
         }
       }
     );
@@ -74,10 +71,6 @@ export class LenderMaintenanceComponent implements OnInit, OnDestroy {
   ) {
     this.lenderStartLoaded = lenderStartLoaded;
     this.lenderLoadedSucceed = lenderLoadedSucceed;
-  }
-
-  private sendToastMessageWhenDataIsLoaded() {
-    this.toastService.success('Lenders are fetched successfully!', 'Success');
   }
 
   private subscribeToGlobalErrorHanlder() {

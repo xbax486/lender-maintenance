@@ -1,0 +1,35 @@
+<div class="modal app-confirm-modal" tabindex="-1" id="confirm-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Changes not saved</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <p>
+          There are some changes unsaved. Please confirm that you will not save
+          the changes by clicking 'Yes'. Otherwise, click 'No' to close this
+          modal and click 'Save' to save changes.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-bs-dismiss="modal"
+          (click)="onYesClicked()"
+        >
+          Yes
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+          No
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { delay, tap, BehaviorSubject } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 import { LenderJsonResult } from '../models/lender';
 import { Lender, Bank } from './../models/lender';
 
-const TIME_TO_FETCH_DATA = 2000;
+const TIME_TO_FETCH_DATA = 3000;
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,7 @@ const TIME_TO_FETCH_DATA = 2000;
 export class LenderService {
   private _jsonURL = 'assets/lenders.json';
   private _lenders: Lender[] = [];
+  private _originalLenders: Lender[] = [];
   private _banks: Bank[] = [];
   private _types: string[] = [];
 
@@ -33,23 +35,33 @@ export class LenderService {
     },
   });
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private toastService: ToastrService) {}
 
-  public fetchLenders(): void {
+  public fetchLenders() {
     this.http
       .get<LenderJsonResult>(this._jsonURL)
       .pipe(
         delay(TIME_TO_FETCH_DATA),
         tap((lenderJsonResult: LenderJsonResult) => {
           this._lenders = lenderJsonResult.data;
-          this.lenders$.next([...this._lenders]);
+          this.updateOriginalLenders();
+          this.lenders$.next(this._lenders);
+          this.showSuccessNotification();
         })
       )
       .subscribe();
   }
 
   public getLenders(): Lender[] {
-    return [...this._lenders];
+    return this._lenders;
+  }
+
+  public updateOriginalLenders() {
+    this._originalLenders = JSON.parse(JSON.stringify(this._lenders));
+  }
+
+  public resetToOriginalLenders() {
+    this._lenders = JSON.parse(JSON.stringify(this._originalLenders));
   }
 
   public getBanks(): Bank[] {
@@ -64,7 +76,7 @@ export class LenderService {
         ];
       });
     }
-    return [...this._banks];
+    return this._banks;
   }
 
   public getTypes(): string[] {
@@ -75,10 +87,14 @@ export class LenderService {
         }
       });
     }
-    return [...this._types];
+    return this._types;
   }
 
   public banksAndTypesLoaded(): boolean {
     return this.getBanks().length > 0 && this.getTypes().length > 0;
+  }
+
+  private showSuccessNotification() {
+    this.toastService.success('Lenders are fetched successfully!', 'Success');
   }
 }
