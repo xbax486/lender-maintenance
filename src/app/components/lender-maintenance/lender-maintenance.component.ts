@@ -30,11 +30,11 @@ export class LenderMaintenanceComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    if (this.lenderService.lenders && this.lenderService.lenders.length === 0) {
+    this.lenders = this.lenderService.getLenders();
+    if (this.lenders.length === 0) {
       this.fetchLenders();
       this.hanleLendersLoaded();
     } else {
-      this.lenders = [...this.lenderService.lenders];
       this.uploadLoadingStatusFlags(false, true);
     }
   }
@@ -46,7 +46,7 @@ export class LenderMaintenanceComponent implements OnInit, OnDestroy {
 
   public fetchLenders() {
     this.lenderStartLoaded = true;
-    this.lenderService.getLenders();
+    this.lenderService.fetchLenders();
   }
 
   public hanleLendersLoaded() {
@@ -65,7 +65,7 @@ export class LenderMaintenanceComponent implements OnInit, OnDestroy {
 
   public onEditClicked(lender: Lender) {
     this.lenderService.selectedLender$.next(lender);
-    this.router.navigate(['/lender', lender.id]);
+    this.router.navigate(['/lender', this.lenders.indexOf(lender)]);
   }
 
   private uploadLoadingStatusFlags(

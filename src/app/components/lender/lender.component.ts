@@ -81,7 +81,7 @@ export class LenderComponent implements OnInit, OnDestroy {
   }
 
   private getBanksAndTypes() {
-    this.banks = this.lenderService.getLendersBanks();
-    this.types = this.lenderService.getLendersTypes();
+    this.banks = this.lenderService.getBanks();
+    this.types = this.lenderService.getTypes();
   }
 }
