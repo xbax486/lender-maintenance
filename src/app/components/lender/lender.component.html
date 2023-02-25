@@ -1,5 +1,5 @@
 <div class="app-lender">
-  <form>
+  <form (ngSubmit)="onSubmit(lenderForm)" #lenderForm="ngForm">
     <div class="row">
       <div class="col mb-2">
         <label for="bankCode" class="form-label">Bank Code</label>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, delay, tap, BehaviorSubject } from 'rxjs';
+import { delay, tap, BehaviorSubject } from 'rxjs';
 
 import { LenderJsonResult } from '../models/lender';
 import { Lender, Bank } from './../models/lender';
@@ -12,7 +12,12 @@ const TIME_TO_FETCH_DATA = 2000;
 })
 export class LenderService {
   private _jsonURL = 'assets/lenders.json';
-  private _lenders: Lender[] = [];
+
+  public lenders: Lender[] = [];
+  public banks: Bank[] = [];
+  public types: string[] = [];
+
+  public lenders$ = new BehaviorSubject<Lender[]>([]);
   public selectedLender$ = new BehaviorSubject<Lender>({
     type: '',
     id: '',
@@ -31,40 +36,42 @@ export class LenderService {
 
   constructor(private http: HttpClient) {}
 
-  public getLenders(): Observable<LenderJsonResult> {
-    return this.http.get<LenderJsonResult>(this._jsonURL).pipe(
-      delay(TIME_TO_FETCH_DATA),
-      tap((lenderJsonResult: LenderJsonResult) => {
-        this._lenders = lenderJsonResult.data;
-      })
-    );
+  public getLenders(): void {
+    this.http
+      .get<LenderJsonResult>(this._jsonURL)
+      .pipe(
+        delay(TIME_TO_FETCH_DATA),
+        tap((lenderJsonResult: LenderJsonResult) => {
+          this.lenders = lenderJsonResult.data;
+          this.lenders$.next([...this.lenders]);
+        })
+      )
+      .subscribe();
   }
 
   public getLendersBanks(): Bank[] {
-    let banks: Bank[] = [];
-    if (this._lenders.length > 0) {
-      this._lenders.map((lender: Lender) => {
-        banks.push({
+    if (this.banks.length === 0 && this.lenders.length > 0) {
+      this.lenders.map((lender: Lender) => {
+        this.banks.push({
           code: lender.attributes.code,
           name: lender.attributes.name,
         });
-        banks = [
-          ...new Map(banks.map((bank) => [bank['code'], bank])).values(),
+        this.banks = [
+          ...new Map(this.banks.map((bank) => [bank['code'], bank])).values(),
         ];
       });
     }
-    return banks;
+    return this.banks;
   }
 
   public getLendersTypes() {
-    let types: string[] = [];
-    if (this._lenders.length > 0) {
-      this._lenders.map((lender: Lender) => {
-        if (!types.includes(lender.attributes.type)) {
-          types.push(lender.attributes.type);
+    if (this.types.length === 0 && this.lenders.length > 0) {
+      this.lenders.map((lender: Lender) => {
+        if (!this.types.includes(lender.attributes.type)) {
+          this.types.push(lender.attributes.type);
         }
       });
     }
-    return types;
+    return this.types;
   }
 }

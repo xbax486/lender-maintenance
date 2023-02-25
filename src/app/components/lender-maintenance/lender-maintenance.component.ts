@@ -1,11 +1,11 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
-import { Lender, Bank } from './../../models/lender';
+import { Lender } from './../../models/lender';
 
 import { LenderService } from './../../services/lender.service';
-import { ToastrService } from 'ngx-toastr';
 import { ErrorHandleService } from './../../services/error-handle.service';
 
 @Component({
@@ -13,7 +13,7 @@ import { ErrorHandleService } from './../../services/error-handle.service';
   templateUrl: './lender-maintenance.component.html',
   styleUrls: ['./lender-maintenance.component.css'],
 })
-export class LenderMaintenanceComponent implements OnDestroy {
+export class LenderMaintenanceComponent implements OnInit, OnDestroy {
   lenders: Lender[] = [];
 
   lenderStartLoaded: boolean = false;
@@ -27,27 +27,38 @@ export class LenderMaintenanceComponent implements OnDestroy {
     private toastService: ToastrService,
     private errorHandleService: ErrorHandleService,
     private router: Router
-  ) {
-    this.fetchLenders();
+  ) {}
+
+  ngOnInit() {
+    if (this.lenderService.lenders && this.lenderService.lenders.length === 0) {
+      this.fetchLenders();
+      this.hanleLendersLoaded();
+    } else {
+      this.lenders = [...this.lenderService.lenders];
+      this.uploadLoadingStatusFlags(false, true);
+    }
   }
 
-  ngOnDestroy(): void {
-    this.clearAllSubscriptions();
+  ngOnDestroy() {
+    this.fetchLendersSubscription.unsubscribe();
+    this.hanldeErrorsSubscription.unsubscribe();
   }
 
   public fetchLenders() {
     this.lenderStartLoaded = true;
+    this.lenderService.getLenders();
+  }
 
-    this.clearAllSubscriptions();
-    this.fetchLendersSubscription = this.lenderService
-      .getLenders()
-      .subscribe((lendersResult) => {
-        if (lendersResult && lendersResult.data) {
-          this.lenders = lendersResult.data;
+  public hanleLendersLoaded() {
+    this.fetchLendersSubscription = this.lenderService.lenders$.subscribe(
+      (lenders: Lender[]) => {
+        if (lenders && lenders.length > 0) {
+          this.lenders = [...lenders];
           this.uploadLoadingStatusFlags(false, true);
           this.sendToastMessageWhenDataIsLoaded();
         }
-      });
+      }
+    );
 
     this.subscribeToGlobalErrorHanlder();
   }
@@ -76,10 +87,5 @@ export class LenderMaintenanceComponent implements OnDestroy {
           this.uploadLoadingStatusFlags(false, false);
         }
       });
-  }
-
-  private clearAllSubscriptions() {
-    this.fetchLendersSubscription.unsubscribe();
-    this.hanldeErrorsSubscription.unsubscribe();
   }
 }

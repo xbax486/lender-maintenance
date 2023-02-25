@@ -1,5 +1,6 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
 import { Lender, Bank } from 'src/app/models/lender';
@@ -11,7 +12,7 @@ import { LenderService } from 'src/app/services/lender.service';
   templateUrl: './lender.component.html',
   styleUrls: ['./lender.component.css'],
 })
-export class LenderComponent implements OnDestroy {
+export class LenderComponent implements OnInit, OnDestroy {
   selectedLender: Lender = {
     type: '',
     id: '',
@@ -35,15 +36,29 @@ export class LenderComponent implements OnDestroy {
 
   selectedLenderSubscription = new Subscription();
 
-  constructor(private router: Router, private lenderService: LenderService) {
+  constructor(private router: Router, private lenderService: LenderService) {}
+
+  ngOnInit() {
     this.getSelectedLender();
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() {
     this.selectedLenderSubscription.unsubscribe();
   }
 
-  onCancelClicked() {
+  public getSelectedLender() {
+    this.selectedLenderSubscription =
+      this.lenderService.selectedLender$.subscribe((lender: Lender) => {
+        this.selectedLender = lender;
+        this.getBanksAndTypes();
+      });
+  }
+
+  public onCancelClicked() {
+    this.router.navigate(['']);
+  }
+
+  public onSubmit(form: NgForm) {
     this.router.navigate(['']);
   }
 
@@ -63,24 +78,10 @@ export class LenderComponent implements OnDestroy {
       updatedBank = { ...this.banks[index] };
       this.selectedLender.attributes.code = updatedBank.code;
     }
-
-    console.log(this.selectedLender);
   }
 
-  private getSelectedLender() {
-    this.selectedLenderSubscription =
-      this.lenderService.selectedLender$.subscribe((lender: Lender) => {
-        this.selectedLender = lender;
-        this.getBanks();
-        this.getTypes();
-      });
-  }
-
-  private getBanks() {
+  private getBanksAndTypes() {
     this.banks = this.lenderService.getLendersBanks();
-  }
-
-  private getTypes() {
     this.types = this.lenderService.getLendersTypes();
   }
 }
