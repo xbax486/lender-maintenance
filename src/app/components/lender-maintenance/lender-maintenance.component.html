@@ -49,162 +49,57 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let lender of lendersWithEdited">
+                <tr *ngFor="let lender of lenders">
                   <td class="col-1 lenders-table-text-bold">
-                    <span *ngIf="!lender.isEditMode">
-                      {{ lender.attributes.code }}
-                    </span>
-                    <select
-                      name="bankCode"
-                      id="bankCode"
-                      *ngIf="lender.isEditMode"
-                      (change)="onBankChanged($event, lender, 'code')"
-                    >
-                      <option
-                        *ngFor="let bank of banks; index as index"
-                        [value]="bank.code"
-                        [selected]="bank.code === lender.attributes.code"
-                      >
-                        {{ bank.code }}
-                      </option>
-                    </select>
+                    {{ lender.attributes.code }}
                   </td>
                   <td class="col-3">
-                    <span *ngIf="!lender.isEditMode">
-                      {{ lender.attributes.name }}
-                    </span>
-                    <select
-                      name="displayName"
-                      id="displayName"
-                      *ngIf="lender.isEditMode"
-                      (change)="onBankChanged($event, lender, 'name')"
-                    >
-                      <option
-                        *ngFor="let bank of banks"
-                        [value]="bank.name"
-                        [selected]="bank.name === lender.attributes.name"
-                      >
-                        {{ bank.name }}
-                      </option>
-                    </select>
+                    {{ lender.attributes.name }}
                   </td>
                   <td class="col-1">
-                    <span *ngIf="!lender.isEditMode">
-                      {{ lender.attributes.type | titlecase }}
-                    </span>
-                    <select name="type" id="type" *ngIf="lender.isEditMode">
-                      <option
-                        *ngFor="let type of types"
-                        [value]="type"
-                        [selected]="type === lender.attributes.type"
-                      >
-                        {{ type | titlecase }}
-                      </option>
-                    </select>
+                    {{ lender.attributes.type | titlecase }}
                   </td>
                   <td class="col-3 text-center">
                     <div class="row">
                       <div class="col-4 text-center">
-                        <span *ngIf="!lender.isEditMode">
-                          %{{
-                            lender.attributes.upfont_commission / 100
-                              | number : "1.0-2"
-                          }}
-                        </span>
-                        <input
-                          *ngIf="lender.isEditMode"
-                          class="input-number"
-                          type="number"
-                          min="0"
-                          max="100"
-                          [value]="lender.attributes.upfont_commission"
-                          (change)="
-                            onNumberChanged($event, lender, 'upfont_commission')
-                          "
-                        />
+                        %{{
+                          lender.attributes.upfont_commission / 100
+                            | number : "1.0-2"
+                        }}
                       </div>
                       <div class="col-4 text-center">
-                        <span *ngIf="!lender.isEditMode">
-                          %{{
-                            lender.attributes.high_trail_commission / 100
-                              | number : "1.0-2"
-                          }}
-                        </span>
-                        <input
-                          *ngIf="lender.isEditMode"
-                          class="input-number"
-                          type="number"
-                          min="0"
-                          max="100"
-                          [value]="lender.attributes.high_trail_commission"
-                          (change)="
-                            onNumberChanged(
-                              $event,
-                              lender,
-                              'high_trail_commission'
-                            )
-                          "
-                        />
+                        %{{
+                          lender.attributes.high_trail_commission / 100
+                            | number : "1.0-2"
+                        }}
                       </div>
                       <div class="col-4 text-center">
-                        <span *ngIf="!lender.isEditMode">
-                          %{{
-                            lender.attributes.low_trail_commission / 100
-                              | number : "1.0-2"
-                          }}
-                        </span>
-                        <input
-                          *ngIf="lender.isEditMode"
-                          class="input-number"
-                          type="number"
-                          min="0"
-                          max="100"
-                          [value]="lender.attributes.low_trail_commission"
-                          (change)="
-                            onNumberChanged(
-                              $event,
-                              lender,
-                              'low_trail_commission'
-                            )
-                          "
-                        />
+                        %{{
+                          lender.attributes.low_trail_commission / 100
+                            | number : "1.0-2"
+                        }}
                       </div>
                     </div>
                   </td>
                   <td class="col-1 text-center">
-                    <span *ngIf="!lender.isEditMode">
-                      {{ lender.attributes.balance_multiplier }}
-                    </span>
-                    <input
-                      *ngIf="lender.isEditMode"
-                      class="input-number"
-                      type="number"
-                      min="0"
-                      max="100"
-                      [value]="lender.attributes.balance_multiplier"
-                      (change)="
-                        onNumberChanged($event, lender, 'balance_multiplier')
-                      "
-                    />
+                    {{ lender.attributes.balance_multiplier }}
                   </td>
                   <td class="col-1 text-center">
                     <input
                       type="checkbox"
-                      [disabled]="!lender.isEditMode"
+                      disabled
                       [checked]="lender.attributes.is_active"
-                      (change)="onCheckboxChanged($event, lender, 'is_active')"
                     />
                   </td>
                   <td class="col-1 text-center">
                     <input
                       type="checkbox"
-                      [disabled]="!lender.isEditMode"
+                      disabled
                       [checked]="lender.attributes.is_hidden"
-                      (change)="onCheckboxChanged($event, lender, 'is_hidden')"
                     />
                   </td>
                   <td class="col-1">
-                    <div (click)="toggleIsEdit(lender)" class="edit-button">
+                    <div (click)="onEditClicked(lender)" class="edit-button">
                       <i class="fa fa-pencil" aria-hidden="true"></i> Edit
                     </div>
                   </td>

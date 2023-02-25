@@ -2,7 +2,6 @@ export interface Lender {
   type: string;
   id: string;
   attributes: LenderAttributes;
-  isEditMode?: boolean;
 }
 
 export interface LenderAttributes {
