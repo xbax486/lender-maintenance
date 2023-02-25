@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, delay, switchMap, of, tap } from 'rxjs';
+import { Observable, delay, tap, BehaviorSubject } from 'rxjs';
 
 import { LenderJsonResult } from '../models/lender';
 import { Lender, Bank } from './../models/lender';
 
-const TIME_TO_FETCH_DATA = 3000;
+const TIME_TO_FETCH_DATA = 2000;
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +13,21 @@ const TIME_TO_FETCH_DATA = 3000;
 export class LenderService {
   private _jsonURL = 'assets/lenders.json';
   private _lenders: Lender[] = [];
+  public selectedLender$ = new BehaviorSubject<Lender>({
+    type: '',
+    id: '',
+    attributes: {
+      code: '',
+      name: '',
+      type: '',
+      upfont_commission: 0,
+      high_trail_commission: 0,
+      low_trail_commission: 0,
+      balance_multiplier: 0,
+      is_active: false,
+      is_hidden: false,
+    },
+  });
 
   constructor(private http: HttpClient) {}
 

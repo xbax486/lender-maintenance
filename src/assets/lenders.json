@@ -9,7 +9,7 @@
       "attributes": {
         "code": "ANZ",
         "name": "ANZ",
-        "type": "residential",
+        "type": "aaa",
         "upfont_commission": 0,
         "high_trail_commission": 3,
         "low_trail_commission": 0,

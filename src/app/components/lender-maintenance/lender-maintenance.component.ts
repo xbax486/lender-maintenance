@@ -60,6 +60,7 @@ export class LenderMaintenanceComponent implements OnDestroy {
 
   public toggleIsEdit(lender: Lender) {
     lender.isEditMode = !lender.isEditMode;
+    this.lenderService.selectedLender$.next(lender);
     this.router.navigate(['/lender', lender.id]);
   }
 

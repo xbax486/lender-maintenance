@@ -3,49 +3,108 @@
     <div class="row">
       <div class="col mb-2">
         <label for="bankCode" class="form-label">Bank Code</label>
-        <select class="form-select" aria-label="bank code">
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+        <select
+          name="bankCode"
+          class="form-select"
+          id="bankCode"
+          aria-label="bank code"
+          [(ngModel)]="selectedLender.attributes.code"
+          (ngModelChange)="onBankChanged(0)"
+        >
+          <option
+            *ngFor="let bank of banks"
+            [value]="bank.code"
+            [selected]="bank.code === selectedLender.attributes.code"
+          >
+            {{ bank.code }}
+          </option>
         </select>
       </div>
     </div>
     <div class="row">
       <div class="col mb-2">
         <label for="displayName" class="form-label">Display Name</label>
-        <select class="form-select" aria-label="display name">
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+        <select
+          name="displayName"
+          class="form-select"
+          id="displayName"
+          aria-label="display name"
+          [(ngModel)]="selectedLender.attributes.name"
+          (ngModelChange)="onBankChanged(1)"
+        >
+          <option
+            *ngFor="let bank of banks"
+            [value]="bank.name"
+            [selected]="bank.name === selectedLender.attributes.name"
+          >
+            {{ bank.name }}
+          </option>
         </select>
       </div>
     </div>
     <div class="row">
       <div class="col mb-2">
         <label for="type" class="form-label">Type</label>
-        <select class="form-select" aria-label="type">
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+        <select
+          name="type"
+          class="form-select"
+          id="type"
+          aria-label="type"
+          [(ngModel)]="selectedLender.attributes.type"
+        >
+          <option
+            *ngFor="let type of types; index as index"
+            [value]="type"
+            [selected]="type === selectedLender.attributes.type"
+          >
+            {{ type | titlecase }}
+          </option>
         </select>
       </div>
     </div>
     <div class="row">
       <div class="col mb-2">
         <label for="upfront" class="form-label">Upfront</label>
-        <input type="number" class="form-control" id="upfront" />
+        <input
+          name="upfront"
+          type="number"
+          class="form-control"
+          id="upfront"
+          min="0"
+          max="100"
+          [value]="selectedLender.attributes.upfont_commission"
+          [(ngModel)]="selectedLender.attributes.upfont_commission"
+        />
       </div>
     </div>
     <div class="row">
       <div class="col mb-2">
         <label for="trailHigh" class="form-label">Trail High</label>
-        <input type="number" class="form-control" id="trailHigh" />
+        <input
+          name="trailHigh"
+          type="number"
+          class="form-control"
+          id="trailHigh"
+          min="0"
+          max="100"
+          [value]="selectedLender.attributes.high_trail_commission"
+          [(ngModel)]="selectedLender.attributes.high_trail_commission"
+        />
       </div>
     </div>
     <div class="row">
       <div class="col mb-2">
         <label for="trailLow" class="form-label">Trail Low</label>
-        <input type="number" class="form-control" id="trailLow" />
+        <input
+          name="trailLow"
+          type="number"
+          class="form-control"
+          id="trailLow"
+          min="0"
+          max="100"
+          [value]="selectedLender.attributes.low_trail_commission"
+          [(ngModel)]="selectedLender.attributes.low_trail_commission"
+        />
       </div>
     </div>
     <div class="row">
@@ -53,14 +112,30 @@
         <label for="balanceMultiplier" class="form-label">
           Balance Multiplier
         </label>
-        <input type="number" class="form-control" id="balanceMultiplier" />
+        <input
+          name="balanceMultiplier"
+          type="number"
+          class="form-control"
+          id="balanceMultiplier"
+          min="0"
+          max="100"
+          [value]="selectedLender.attributes.balance_multiplier"
+          [(ngModel)]="selectedLender.attributes.balance_multiplier"
+        />
       </div>
     </div>
     <div class="row">
       <div class="col mb-2">
         <div class="form-check">
           <label for="active" class="form-label">Active</label>
-          <input class="form-check-input" type="checkbox" id="active" />
+          <input
+            name="active"
+            class="form-check-input"
+            type="checkbox"
+            id="active"
+            [value]="selectedLender.attributes.is_active"
+            [(ngModel)]="selectedLender.attributes.is_active"
+          />
         </div>
       </div>
     </div>
@@ -68,7 +143,14 @@
       <div class="col mb-2">
         <div class="form-check">
           <label for="hide" class="form-label">Hide</label>
-          <input class="form-check-input" type="checkbox" id="hide" />
+          <input
+            name="hide"
+            class="form-check-input"
+            type="checkbox"
+            id="hide"
+            [value]="selectedLender.attributes.is_hidden"
+            [(ngModel)]="selectedLender.attributes.is_hidden"
+          />
         </div>
       </div>
     </div>
