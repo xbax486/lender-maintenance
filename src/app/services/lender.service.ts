@@ -3,8 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { delay, tap, BehaviorSubject } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 
-import { LenderJsonResult } from '../models/lender';
-import { Lender, Bank } from './../models/lender';
+import { ILender } from './../models/lender';
+import { IBank } from './../models/bank';
+import { ILenderJsonResult } from './../models/lender-json-result';
 
 const TIME_TO_FETCH_DATA = 3000;
 
@@ -13,13 +14,13 @@ const TIME_TO_FETCH_DATA = 3000;
 })
 export class LenderService {
   private _jsonURL = 'assets/lenders.json';
-  private _lenders: Lender[] = [];
-  private _originalLenders: Lender[] = [];
-  private _banks: Bank[] = [];
+  private _lenders: ILender[] = [];
+  private _originalLenders: ILender[] = [];
+  private _banks: IBank[] = [];
   private _types: string[] = [];
 
-  public lenders$ = new BehaviorSubject<Lender[]>([]);
-  public selectedLender$ = new BehaviorSubject<Lender>({
+  public lenders$ = new BehaviorSubject<ILender[]>([]);
+  public selectedLender$ = new BehaviorSubject<ILender>({
     type: '',
     id: '',
     attributes: {
@@ -39,10 +40,10 @@ export class LenderService {
 
   public fetchLenders() {
     this.http
-      .get<LenderJsonResult>(this._jsonURL)
+      .get<ILenderJsonResult>(this._jsonURL)
       .pipe(
         delay(TIME_TO_FETCH_DATA),
-        tap((lenderJsonResult: LenderJsonResult) => {
+        tap((lenderJsonResult: ILenderJsonResult) => {
           this._lenders = lenderJsonResult.data;
           this.updateOriginalLenders();
           this.lenders$.next(this._lenders);
@@ -52,7 +53,7 @@ export class LenderService {
       .subscribe();
   }
 
-  public getLenders(): Lender[] {
+  public getLenders(): ILender[] {
     return this._lenders;
   }
 
@@ -64,9 +65,9 @@ export class LenderService {
     this._lenders = JSON.parse(JSON.stringify(this._originalLenders));
   }
 
-  public getBanks(): Bank[] {
+  public getBanks(): IBank[] {
     if (this._lenders.length > 0 && this._banks.length === 0) {
-      this._lenders.map((lender: Lender) => {
+      this._lenders.map((lender: ILender) => {
         this._banks.push({
           code: lender.attributes.code,
           name: lender.attributes.name,
@@ -81,7 +82,7 @@ export class LenderService {
 
   public getTypes(): string[] {
     if (this._lenders.length > 0 && this._types.length === 0) {
-      this._lenders.map((lender: Lender) => {
+      this._lenders.map((lender: ILender) => {
         if (!this._types.includes(lender.attributes.type)) {
           this._types.push(lender.attributes.type);
         }

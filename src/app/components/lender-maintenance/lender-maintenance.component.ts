@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
-import { Lender } from './../../models/lender';
+import { ILender } from './../../models/lender';
 
 import { LenderService } from './../../services/lender.service';
 import { ErrorHandleService } from './../../services/error-handle.service';
@@ -13,7 +13,7 @@ import { ErrorHandleService } from './../../services/error-handle.service';
   styleUrls: ['./lender-maintenance.component.css'],
 })
 export class LenderMaintenanceComponent implements OnInit, OnDestroy {
-  lenders: Lender[] = [];
+  lenders: ILender[] = [];
 
   lenderStartLoaded: boolean = false;
   lenderLoadedSucceed: boolean = false;
@@ -49,7 +49,7 @@ export class LenderMaintenanceComponent implements OnInit, OnDestroy {
 
   public hanleLendersLoaded() {
     this.fetchLendersSubscription = this.lenderService.lenders$.subscribe(
-      (lenders: Lender[]) => {
+      (lenders: ILender[]) => {
         if (lenders && lenders.length > 0) {
           this.lenders = lenders;
           this.uploadLoadingStatusFlags(false, true);
@@ -60,7 +60,7 @@ export class LenderMaintenanceComponent implements OnInit, OnDestroy {
     this.subscribeToGlobalErrorHanlder();
   }
 
-  public onEditClicked(lender: Lender) {
+  public onEditClicked(lender: ILender) {
     this.lenderService.selectedLender$.next(lender);
     this.router.navigate(['/lender', this.lenders.indexOf(lender)]);
   }
