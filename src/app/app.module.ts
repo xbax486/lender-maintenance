@@ -13,6 +13,7 @@ import { LenderMaintenanceComponent } from './components/lender-maintenance/lend
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { LenderComponent } from './components/lender/lender.component';
 import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
+import { EllipsisPipe } from './pipes/ellipsis.pipe';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.
     LoadingSpinnerComponent,
     LenderComponent,
     ConfirmModalComponent,
+    EllipsisPipe,
   ],
   imports: [
     BrowserModule,

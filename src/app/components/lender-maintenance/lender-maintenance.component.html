@@ -24,8 +24,8 @@
               <thead>
                 <tr>
                   <th class="col-1 lenders-table-text-bold">Bank Code</th>
-                  <th class="col-3 lenders-table-text-bold">Display Name</th>
-                  <th class="col-1 lenders-table-text-bold">Type</th>
+                  <th class="col-2 lenders-table-text-bold">Display Name</th>
+                  <th class="col-2 lenders-table-text-bold">Type</th>
                   <th class="col-3 text-center lenders-table-text-bold">
                     <div class="row">
                       <div class="col-12">Commission</div>
@@ -53,10 +53,10 @@
                   <td class="col-1 lenders-table-text-bold">
                     {{ lender.attributes.code }}
                   </td>
-                  <td class="col-3">
-                    {{ lender.attributes.name }}
+                  <td class="col-2">
+                    {{ lender.attributes.name | ellipsis : 22 }}
                   </td>
-                  <td class="col-1">
+                  <td class="col-2">
                     {{ lender.attributes.type | titlecase }}
                   </td>
                   <td class="col-3 text-center">
