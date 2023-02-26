@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import * as _ from 'lodash';
 import { Modal } from 'bootstrap';
 
 import { ILender } from 'src/app/models/lender';
@@ -66,17 +67,14 @@ export class LenderComponent implements OnInit, OnDestroy {
   public getSelectedLender() {
     this.selectedLenderSubscription =
       this.lenderService.selectedLender$.subscribe((lender: ILender) => {
-        this.selectedLender = lender;
-        this.originalLender = JSON.parse(JSON.stringify(lender));
+        this.selectedLender = _.cloneDeep(lender);
+        this.originalLender = _.cloneDeep(lender);
         this.getBanksAndTypes();
       });
   }
 
   public onCancelClicked() {
-    const anyChangeMade =
-      JSON.stringify(this.selectedLender) !==
-      JSON.stringify(this.originalLender);
-    if (anyChangeMade) {
+    if (this.lenderIsChanged()) {
       let confirmModal = new Modal(
         document.getElementById('confirm-modal') as HTMLElement
       );
@@ -86,8 +84,14 @@ export class LenderComponent implements OnInit, OnDestroy {
     }
   }
 
-  public onSubmit(form: NgForm) {
-    this.lenderService.updateOriginalLenders();
+  public onSubmit() {
+    if (this.lenderIsChanged()) {
+      let lenders = this.lenderService.getLenders();
+      let indexOfLender = lenders.findIndex(
+        (lender: ILender) => lender.id === this.selectedLender.id
+      );
+      this.lenderService.updateLenders(indexOfLender, this.selectedLender);
+    }
     this.router.navigate(['']);
   }
 
@@ -112,5 +116,9 @@ export class LenderComponent implements OnInit, OnDestroy {
   private getBanksAndTypes() {
     this.banks = this.lenderService.getBanks();
     this.types = this.lenderService.getTypes();
+  }
+
+  private lenderIsChanged() {
+    return !_.isEqual(this.selectedLender, this.originalLender);
   }
 }

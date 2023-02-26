@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { delay, tap, BehaviorSubject } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import * as _ from 'lodash';
 
 import { ILender } from './../models/lender';
 import { IBank } from './../models/bank';
@@ -15,7 +16,6 @@ const TIME_TO_FETCH_DATA = 3000;
 export class LenderService {
   private _jsonURL = 'assets/lenders.json';
   private _lenders: ILender[] = [];
-  private _originalLenders: ILender[] = [];
   private _banks: IBank[] = [];
   private _types: string[] = [];
 
@@ -45,8 +45,7 @@ export class LenderService {
         delay(TIME_TO_FETCH_DATA),
         tap((lenderJsonResult: ILenderJsonResult) => {
           this._lenders = lenderJsonResult.data;
-          this.updateOriginalLenders();
-          this.lenders$.next(this._lenders);
+          this.broastcastNewLenders();
           this.showSuccessNotification();
         })
       )
@@ -54,15 +53,16 @@ export class LenderService {
   }
 
   public getLenders(): ILender[] {
-    return this._lenders;
+    return _.cloneDeep(this._lenders);
   }
 
-  public updateOriginalLenders() {
-    this._originalLenders = JSON.parse(JSON.stringify(this._lenders));
+  public updateLenders(updatedLenderIndex: number, updatedLender: ILender) {
+    this._lenders[updatedLenderIndex] = _.cloneDeep(updatedLender);
+    this.broastcastNewLenders();
   }
 
-  public resetToOriginalLenders() {
-    this._lenders = JSON.parse(JSON.stringify(this._originalLenders));
+  private broastcastNewLenders() {
+    this.lenders$.next(this._lenders);
   }
 
   public getBanks(): IBank[] {
@@ -77,7 +77,7 @@ export class LenderService {
         ];
       });
     }
-    return this._banks;
+    return _.cloneDeep(this._banks);
   }
 
   public getTypes(): string[] {
@@ -88,7 +88,7 @@ export class LenderService {
         }
       });
     }
-    return this._types;
+    return _.cloneDeep(this._types);
   }
 
   public banksAndTypesLoaded(): boolean {
