@@ -37,13 +37,22 @@
   display: block;
   height: 500px;
   overflow-y: auto;
-  direction: rtl;
-  margin: 0 0 0 -15px;
 }
 
-.lenders-table tbody > tr {
-  direction: ltr;
-}
+/*
+  To have the scrollbar on the left
+  so that the user could see it on 
+  a smaller screen
+
+  .lenders-table tbody {
+    direction: rtl;
+    margin: 0 0 0 -15px;
+  }
+
+  .lenders-table tbody > tr {
+    direction: ltr;
+  }
+*/
 
 .lenders-table thead,
 .lenders-table tbody tr {
