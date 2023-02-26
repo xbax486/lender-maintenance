@@ -18,7 +18,7 @@ export class LenderMaintenanceComponent implements OnInit, OnDestroy {
   lenderStartLoaded: boolean = false;
   lenderLoadedSucceed: boolean = false;
 
-  fetchLendersSubscription: Subscription = new Subscription();
+  loadLendersSubscription: Subscription = new Subscription();
   hanldeErrorsSubscription: Subscription = new Subscription();
 
   constructor(
@@ -31,24 +31,29 @@ export class LenderMaintenanceComponent implements OnInit, OnDestroy {
     this.hanleLendersLoaded();
     this.lenders = this.lenderService.getLenders();
     if (this.lenders.length === 0) {
-      this.fetchLenders();
+      this.loadLenders();
     } else {
       this.uploadLoadingStatusFlags(false, true);
     }
   }
 
   ngOnDestroy() {
-    this.fetchLendersSubscription.unsubscribe();
+    this.loadLendersSubscription.unsubscribe();
     this.hanldeErrorsSubscription.unsubscribe();
   }
 
-  public fetchLenders() {
+  public loadLenders() {
     this.lenderStartLoaded = true;
-    this.lenderService.fetchLenders();
+    this.lenderService.loadLenders();
+  }
+
+  public retryToloadLenders() {
+    this.lenderStartLoaded = true;
+    this.lenderService.retryToloadLenders();
   }
 
   public hanleLendersLoaded() {
-    this.fetchLendersSubscription = this.lenderService.lenders$.subscribe(
+    this.loadLendersSubscription = this.lenderService.lenders$.subscribe(
       (lenders: ILender[]) => {
         if (lenders && lenders.length > 0) {
           this.lenders = lenders;

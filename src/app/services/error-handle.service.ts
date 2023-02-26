@@ -20,7 +20,7 @@ export class ErrorHandleService {
       errorMessage = `An error occured: ${error.error.message}`;
     } else {
       errorMessage =
-        'Something on the backend side goes wrong. Please check with the administrator.';
+        'Something wrong while loading lenders. Please click on the "Retry" button to try it again. If it still fails, please check with the administrator.';
     }
     this.errorOccurSubject.next(new Error('Error Occurs!'));
     this.toastService.error(errorMessage, 'Error');

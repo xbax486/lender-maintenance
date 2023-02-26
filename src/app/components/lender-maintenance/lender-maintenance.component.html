@@ -10,7 +10,7 @@
         <div class="row panel-body">
           <app-loading-spinner *ngIf="lenderStartLoaded"></app-loading-spinner>
           <div *ngIf="!lenderStartLoaded && !lenderLoadedSucceed" class="col">
-            <button class="btn btn-primary" (click)="fetchLenders()">
+            <button class="btn btn-primary" (click)="retryToloadLenders()">
               Retry
             </button>
           </div>

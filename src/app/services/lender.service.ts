@@ -7,14 +7,16 @@ import * as _ from 'lodash';
 import { ILender } from './../models/lender';
 import { IBank } from './../models/bank';
 import { ILenderJsonResult } from './../models/lender-json-result';
+import { environment } from '../../environments/environment';
+import * as devEnvironment from '../../environments/environment.development';
 
-const TIME_TO_FETCH_DATA = 3000;
+const TIME_TO_LOAD_LENDERS = 3000;
 
 @Injectable({
   providedIn: 'root',
 })
 export class LenderService {
-  private _jsonURL = 'assets/lenders.json';
+  private _jsonURL = '';
   private _lenders: ILender[] = [];
   private _banks: IBank[] = [];
   private _types: string[] = [];
@@ -36,13 +38,29 @@ export class LenderService {
     },
   });
 
-  constructor(private http: HttpClient, private toastService: ToastrService) {}
+  constructor(private http: HttpClient, private toastService: ToastrService) {
+    this._jsonURL = environment._jsonURL;
+  }
 
-  public fetchLenders() {
+  public loadLenders() {
     this.http
       .get<ILenderJsonResult>(this._jsonURL)
       .pipe(
-        delay(TIME_TO_FETCH_DATA),
+        delay(TIME_TO_LOAD_LENDERS),
+        tap((lenderJsonResult: ILenderJsonResult) => {
+          this._lenders = lenderJsonResult.data;
+          this.broastcastNewLenders();
+          this.showSuccessNotification();
+        })
+      )
+      .subscribe();
+  }
+
+  public retryToloadLenders() {
+    this.http
+      .get<ILenderJsonResult>(devEnvironment.environment._jsonURL)
+      .pipe(
+        delay(TIME_TO_LOAD_LENDERS),
         tap((lenderJsonResult: ILenderJsonResult) => {
           this._lenders = lenderJsonResult.data;
           this.broastcastNewLenders();
@@ -96,6 +114,6 @@ export class LenderService {
   }
 
   private showSuccessNotification() {
-    this.toastService.success('Lenders are fetched successfully!', 'Success');
+    this.toastService.success('Lenders are loaded successfully!', 'Success');
   }
 }
