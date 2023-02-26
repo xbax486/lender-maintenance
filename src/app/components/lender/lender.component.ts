@@ -46,7 +46,6 @@ export class LenderComponent implements OnInit, OnDestroy {
       is_hidden: false,
     },
   };
-  bank: IBank = { code: '', name: '' };
 
   banks: IBank[] = [];
   types: string[] = [];
@@ -116,12 +115,10 @@ export class LenderComponent implements OnInit, OnDestroy {
   }
 
   private getUpdatedBank(attribute: string) {
-    type attributeKeys = keyof typeof this.selectedLender.attributes;
-    const attributeProp = attribute as attributeKeys;
-    type bankKeys = keyof typeof this.bank;
-    const bankProp = attribute as bankKeys;
     const index = this.banks.findIndex(
-      (bank) => bank[bankProp] === this.selectedLender.attributes[attributeProp]
+      (bank) =>
+        _.get(bank, attribute) ===
+        _.get(this.selectedLender.attributes, attribute)
     );
     return _.cloneDeep(this.banks[index]);
   }
