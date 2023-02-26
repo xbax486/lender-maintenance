@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map, catchError, throwError } from 'rxjs';
 import {
   HttpInterceptor,
   HttpHandler,
@@ -13,23 +13,21 @@ import { ErrorHandleService } from './error-handle.service';
 
 @Injectable()
 export class InterceptorService implements HttpInterceptor {
-  constructor(private error: ErrorHandleService) {}
+  constructor(private errorHandleService: ErrorHandleService) {}
 
-  // intercept function
   public intercept(
-    req: HttpRequest<any>,
+    request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    // returning an observable to complete the request cycle
     return new Observable((observer) => {
-      next.handle(req).subscribe({
-        next: (res: HttpEvent<any>) => {
-          if (res instanceof HttpResponse) {
-            observer.next(res);
+      next.handle(request).subscribe({
+        next: (response: HttpEvent<any>) => {
+          if (response instanceof HttpResponse) {
+            observer.next(response);
           }
         },
-        error: (err: HttpErrorResponse) => {
-          this.error.handleError(err);
+        error: (httpErrorResponse: HttpErrorResponse) => {
+          this.errorHandleService.handleError(httpErrorResponse);
         },
       });
     });

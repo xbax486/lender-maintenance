@@ -13,6 +13,8 @@ export class ErrorHandleService {
   constructor(private toastService: ToastrService) {}
 
   public handleError(error: HttpErrorResponse) {
+    // you could check the status of the error for different handling
+    // (e.g. if (error && error.status == 401))
     let errorMessage: string = '';
     if (error.error instanceof ErrorEvent) {
       errorMessage = `An error occured: ${error.error.message}`;
@@ -20,7 +22,7 @@ export class ErrorHandleService {
       errorMessage =
         'Something on the backend side goes wrong. Please check with the administrator.';
     }
-    this.errorOccurSubject.next(new Error('Ses'));
+    this.errorOccurSubject.next(new Error('Error Occurs!'));
     this.toastService.error(errorMessage, 'Error');
   }
 }
