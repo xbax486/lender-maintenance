@@ -46,6 +46,7 @@ export class LenderComponent implements OnInit, OnDestroy {
       is_hidden: false,
     },
   };
+  bank: IBank = { code: '', name: '' };
 
   banks: IBank[] = [];
   types: string[] = [];
@@ -96,19 +97,11 @@ export class LenderComponent implements OnInit, OnDestroy {
   }
 
   public onBankChanged(property: BankProperties) {
-    let index = 0;
-    let updatedBank: IBank = { code: '', name: '' };
     if (property === 0) {
-      index = this.banks.findIndex(
-        (bank) => bank.code === this.selectedLender.attributes.code
-      );
-      updatedBank = { ...this.banks[index] };
+      const updatedBank = this.getUpdatedBank('code');
       this.selectedLender.attributes.name = updatedBank.name;
     } else if (property === 1) {
-      index = this.banks.findIndex(
-        (bank) => bank.name === this.selectedLender.attributes.name
-      );
-      updatedBank = { ...this.banks[index] };
+      const updatedBank = this.getUpdatedBank('name');
       this.selectedLender.attributes.code = updatedBank.code;
     }
   }
@@ -120,5 +113,16 @@ export class LenderComponent implements OnInit, OnDestroy {
 
   private lenderIsChanged() {
     return !_.isEqual(this.selectedLender, this.originalLender);
+  }
+
+  private getUpdatedBank(attribute: string) {
+    type attributeKeys = keyof typeof this.selectedLender.attributes;
+    const attributeProp = attribute as attributeKeys;
+    type bankKeys = keyof typeof this.bank;
+    const bankProp = attribute as bankKeys;
+    const index = this.banks.findIndex(
+      (bank) => bank[bankProp] === this.selectedLender.attributes[attributeProp]
+    );
+    return _.cloneDeep(this.banks[index]);
   }
 }

@@ -1,4 +1,4 @@
 export enum BankProperties {
-  Code,
-  Name,
+  Code = 0,
+  Name = 1,
 }
