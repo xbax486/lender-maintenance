@@ -123,4 +123,4 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Please run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io). To exit the test mode, simple run `Ctrl + C` in Windows or `Command + C` in Mac.
