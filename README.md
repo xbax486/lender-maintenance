@@ -91,10 +91,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 If the user clicks "No" on the modal, then the modal closes. However, if the user clicks "Yes" on the modal, then all changes would be lost and the user would be navigated back to lenders maintainance table.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
