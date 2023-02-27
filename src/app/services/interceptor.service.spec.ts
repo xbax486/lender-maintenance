@@ -1,16 +1,20 @@
 import { TestBed } from '@angular/core/testing';
-
+import { ErrorHandleService } from './error-handle.service';
 import { InterceptorService } from './interceptor.service';
 
 describe('InterceptorService', () => {
-  let service: InterceptorService;
+  let interceptorService: InterceptorService;
+  let errorHandleServiceSpy: jasmine.SpyObj<ErrorHandleService>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(InterceptorService);
+    errorHandleServiceSpy = jasmine.createSpyObj('ToastrService', [
+      'handleError',
+    ]);
+    interceptorService = new InterceptorService(errorHandleServiceSpy);
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(interceptorService).toBeTruthy();
   });
 });

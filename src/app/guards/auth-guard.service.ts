@@ -4,7 +4,6 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
   Router,
-  UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
 

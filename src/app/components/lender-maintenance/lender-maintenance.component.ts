@@ -80,7 +80,7 @@ export class LenderMaintenanceComponent implements OnInit, OnDestroy {
 
   private subscribeToGlobalErrorHanlder() {
     this.hanldeErrorsSubscription =
-      this.errorHandleService.errorOccurSubject.subscribe((error) => {
+      this.errorHandleService.errorOccurSubject$.subscribe((error) => {
         if (error) {
           this.uploadLoadingStatusFlags(false, false);
         }
