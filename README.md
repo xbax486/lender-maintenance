@@ -8,7 +8,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
     Data loading:
 
-    <div style="background: #efefef"><img src="https://drive.google.com/uc?id=1qEqXTyQMFO_dnyKeb-ZbfeQvLVZZLAlr" alt="data loading image" style="width: 50%;" /></div>
+    <img src="https://drive.google.com/uc?id=1qEqXTyQMFO_dnyKeb-ZbfeQvLVZZLAlr" alt="data loading image" style="width: 50%;" />
 
     Data loaded successfully:
 
