@@ -42,6 +42,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
    <img src="https://drive.google.com/uc?id=13hgCouyNS477gpRHybZgYlRLbZ9BxyuF" alt="confirm modal image" style="width: 50%;" />
 
+   Lenders table after updating the lender:
+
+   <img src="https://drive.google.com/uc?id=132_een1VOvG7NOg1ZHSRGQJUCtj260TK" alt="lenders table after updating the lender image" style="width: 50%;" />
+
 5. To simulate an error occuring, I have added an environment called "error". To run the application in this environment, simply run `ng serve --configuration=error`. After the app starts in this environment, you will see a toast error message in the top right corner as well as a "Retry" button. To load the data again, simply click on the "Retry" button, and the data will be loaded successfully after 3 seconds.
 
    Data loaded with error:
