@@ -6,9 +6,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 1.  Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files. In dev mode, you will be able to see the lender maintainance page like below. To simulate the time to fetch the data, there would be a loading spinner when the page is shown the first time. After 3 seconds, the loading completes and you should be able to see the sample lender data in the table with a green success toast message on the top right corner.
 
-    > Data loading:
+    Data loading:
 
-    > <img src="https://drive.google.com/uc?id=1qEqXTyQMFO_dnyKeb-ZbfeQvLVZZLAlr" alt="data loading image" style="width: 50%;" />
+    <div style="background: #efefef"><img src="https://drive.google.com/uc?id=1qEqXTyQMFO_dnyKeb-ZbfeQvLVZZLAlr" alt="data loading image" style="width: 50%;" /></div>
 
     Data loaded successfully:
 
