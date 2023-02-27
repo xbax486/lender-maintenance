@@ -8,7 +8,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 2. Please execute `ng serve` to launch the app in development mode and navigate to 'http://localhost:4200/'. The application will automatically reload if you change any of the source files.
 
-   In this environment, you will be able to see the lender maintenance page with a header and a loading spinner that indicates that sample lenders are being loaded. The loading spinner should disappear after 3 seconds, and you should be able to see all lenders in the table with a green success toast message in the top right corner.
+   In this environment, you will see the lender maintenance page with a header and a loading spinner that indicates that sample lenders are being loaded. The loading spinner should disappear after 3 seconds, and you should see all lenders in the table with a green success toast message in the top right corner.
 
    Data loading:
 
