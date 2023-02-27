@@ -2,48 +2,50 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
 
-## Major Functionalities
+## How to use the app
 
-1.  Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files. In dev mode, you will be able to see the lender maintainance page like below. To simulate the time to fetch the data, there would be a loading spinner when the page is shown the first time. After 3 seconds, the loading completes and you should be able to see the sample lender data in the table with a green success toast message on the top right corner.
+1. Please clone the repo and run `npm install` to install all packages.
 
-    Data loading:
+2. Please run `ng serve` to start the app in development environment and navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files. In dev mode, you will be able to see the lender maintainance page like below. To simulate the time to fetch the data, there would be a loading spinner when the page is shown the first time. After 3 seconds, the loading completes and you should be able to see the sample lender data in the table with a green success toast message on the top right corner.
 
-    <img src="https://drive.google.com/uc?id=1qEqXTyQMFO_dnyKeb-ZbfeQvLVZZLAlr" alt="data loading image" style="width: 50%;" />
+   Data loading:
 
-    Data loaded successfully:
+   <img src="https://drive.google.com/uc?id=1qEqXTyQMFO_dnyKeb-ZbfeQvLVZZLAlr" alt="data loading image" style="width: 50%;" />
 
-    <img src="https://drive.google.com/uc?id=1PJHzBmJ1UoUmJ75rJsd01Q6QMBYJNPfB" alt="data loaded successfully image" style="width: 50%;" />
+   Data loaded successfully:
 
-2.  On lenders maintanance page, you could scroll up and down to check for all details of all sample lenders data. Please notice that the page is responsive, so there would be a horizontal scrollbar if you view the page on a smaller screen.
+   <img src="https://drive.google.com/uc?id=1PJHzBmJ1UoUmJ75rJsd01Q6QMBYJNPfB" alt="data loaded successfully image" style="width: 50%;" />
 
-    Lenders table on smaller screen:
+3. On lenders maintanance page, you could scroll up and down to check for all details of all sample lenders data. Please notice that the page is responsive, so there would be a horizontal scrollbar if you view the page on a smaller screen.
 
-    <img src="https://drive.google.com/uc?id=1LgaL8LqAAOIAriX66PP53EoJwW9zCQQK" alt="lenders table on smaller screen image" style="width: 50%;" />
+   Lenders table on smaller screen:
 
-3.  When you try to edit one of the lenders, please click on the "Edit" button that is the rightmost column. Then you would be navigated to the lender edit page where you could edit any field. Please notice that the changes made by you would be checked against the original one. You would be navigated back to lenders maintainance table if you click "Save" button to save the changes. Same thing happens when no change is made by clicking on the "Cancel" button. However, if there is any change and you click "Cancel", there would be a confirm modal telling you that changes are not saved and would be lost if you click "Yes" to proceed. Last but not least, the modal is close when you click "No" inside the modal where you could continue to do your changes.
+   <img src="https://drive.google.com/uc?id=1LgaL8LqAAOIAriX66PP53EoJwW9zCQQK" alt="lenders table on smaller screen image" style="width: 50%;" />
 
-    Lender updated before:
+4. When you try to edit one of the lenders, please click on the "Edit" button that is the rightmost column. Then you would be navigated to the lender edit page where you could edit any field. Please notice that the changes made by you would be checked against the original one. You would be navigated back to lenders maintainance table if you click "Save" button to save the changes. Same thing happens when no change is made by clicking on the "Cancel" button. However, if there is any change and you click "Cancel", there would be a confirm modal telling you that changes are not saved and would be lost if you click "Yes" to proceed. Last but not least, the modal is close when you click "No" inside the modal where you could continue to do your changes.
 
-    <img src="https://drive.google.com/uc?id=1lhIzxtXNqP6p3_xUTR_rT2ugJ9RdJtch" alt="lender updated before image" style="width: 50%;" />
+   Lender updated before:
 
-    Lender updated after:
+   <img src="https://drive.google.com/uc?id=1lhIzxtXNqP6p3_xUTR_rT2ugJ9RdJtch" alt="lender updated before image" style="width: 50%;" />
 
-    <img src="https://drive.google.com/uc?id=1PWCDOYO3kS37bOByE7_HRIIiKUdRbzSF" alt="lender updated after image" style="width: 50%;" />
+   Lender updated after:
 
-    Confirm modal:
+   <img src="https://drive.google.com/uc?id=1PWCDOYO3kS37bOByE7_HRIIiKUdRbzSF" alt="lender updated after image" style="width: 50%;" />
 
-    <img src="https://drive.google.com/uc?id=13hgCouyNS477gpRHybZgYlRLbZ9BxyuF" alt="confirm modal image" style="width: 50%;" />
+   Confirm modal:
 
-4.  To simulate an error occurs, I have added an environment call "error". To run
-    the application in "error" mode, simply run the command `ng serve --configuration=error`. In this mode, you would see a sample error message on the top right corner as well as a "Retry" button on the page. Simply click on the "Retry" button and the sample lender JSON data would be loaded again after 3 seconds.
+   <img src="https://drive.google.com/uc?id=13hgCouyNS477gpRHybZgYlRLbZ9BxyuF" alt="confirm modal image" style="width: 50%;" />
 
-    Data loaded with error:
+5. To simulate an error occurs, I have added an environment call "error". To run
+   the application in "error" mode, simply run the command `ng serve --configuration=error`. In this mode, you would see a sample error message on the top right corner as well as a "Retry" button on the page. Simply click on the "Retry" button and the sample lender JSON data would be loaded again after 3 seconds.
 
-    <img src="https://drive.google.com/uc?id=10H8G2qerzTC4vLITgSxxUpmzNqYOfS_v" alt="data loaded with error image" style="width: 50%;" />
+   Data loaded with error:
 
-    Data loaded successfully after clicking "Retry":
+   <img src="https://drive.google.com/uc?id=10H8G2qerzTC4vLITgSxxUpmzNqYOfS_v" alt="data loaded with error image" style="width: 50%;" />
 
-    <img src="https://drive.google.com/uc?id=1PJHzBmJ1UoUmJ75rJsd01Q6QMBYJNPfB" alt="data loaded successfully after clicking retry image" style="width: 50%;" />
+   Data loaded successfully after clicking "Retry":
+
+   <img src="https://drive.google.com/uc?id=1PJHzBmJ1UoUmJ75rJsd01Q6QMBYJNPfB" alt="data loaded successfully after clicking retry image" style="width: 50%;" />
 
 ## Important Project Folders
 
@@ -90,6 +92,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 3. environment.ts: This is the file that lists the environment variables used in production environment.
 
 If the user clicks "No" on the modal, then the modal closes. However, if the user clicks "Yes" on the modal, then all changes would be lost and the user would be navigated back to lenders maintainance table.
+
+## Important third-party libraries
+
+1. Bootstrap: A Powerful, extensible, and feature-packed frontend toolkit. Build and customize with Sass, utilize prebuilt grid system and components, and bring projects to life with powerful JavaScript plugins (https://getbootstrap.com/)
+2. Font Awesome: A popular icon library and toolkit, used by millions of designers, developers, and content creators (https://fontawesome.com/)
+3. Lodash: A modern JavaScript utility library delivering modularity, performance & extras (https://lodash.com/)
+4. ngx-toastr: A node package that helps developers use Toast messages in their apps with different versions of Angular (https://www.npmjs.com/package/ngx-toastr)
 
 ## Running unit tests
 
